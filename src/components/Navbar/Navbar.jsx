@@ -30,13 +30,13 @@ const Navbar = () => {
                                     <li><NavLink to="/businessPartner">BUSINESS PARTNER</NavLink></li>
                                 </ul> */}
                             </li>
-                            <li>
+                            {/* <li>
                                 <NavLink to="/businessOffer">BUSINESS OFFERINGS</NavLink>
                                 <ul className="p-2">
                                     <li><NavLink to="/diamondResume">DIAMOND RESUME</NavLink></li>
                                     <li><NavLink to="/sunshine">SUNSHINE AIRBNB CLEANING</NavLink></li>
                                 </ul>
-                            </li>
+                            </li> */}
                             <li><NavLink to="/inventory">INVENTORY MANAGEMENT SYSTEM</NavLink></li>
                             <li><NavLink to="/supply">SUPPLY CHAIN ANALYTICS</NavLink></li>
                             <li><NavLink to="/airbnb">AIRBNB ANALYTICS</NavLink></li>
@@ -64,13 +64,13 @@ const Navbar = () => {
                         </li>
 
                         {/* BUSINESS OFFERINGS with submenu */}
-                        <li className="relative group">
+                        {/* <li className="relative group">
                             <NavLink to="/businessOffer" className="btn btn-ghost">BUSINESS OFFERINGS</NavLink>
                             <ul className="absolute hidden group-hover:block bg-base-100 rounded-box shadow-lg p-2 mt-10 z-10">
                                 <li><NavLink to="/diamondResume" className="block p-2">DIAMOND RESUME</NavLink></li>
                                 <li><NavLink to="/sunshine" className="block p-2">SUNSHINE AIRBNB CLEANING</NavLink></li>
                             </ul>
-                        </li>
+                        </li> */}
 
                         {/* Other links */}
                         <li><NavLink to="/inventory" className="btn btn-ghost">INVENTORY MANAGEMENT SYSTEM</NavLink></li>

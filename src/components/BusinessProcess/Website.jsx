@@ -1,15 +1,40 @@
+import images from "../../assets/images/images";
+import React, { useState, useEffect } from "react";
+import { Blurhash } from "react-blurhash";
 
 
 const Website = () => {
+
+    const hero_src = images.website_hero;
+    
+      const [imageLoaded, setImageLoaded] = useState(false);
+    
+      useEffect(() => {
+        const img = new Image();
+        img.onload = () => {
+          setImageLoaded(true);
+        };
+        img.src = hero_src;
+      }, [hero_src]);
+      
+
+
     return (
         <div>
-            <div
-                className="hero min-h-screen relative"
-                style={{
-                    backgroundImage: "url(https://i.ibb.co.com/w0pfRDm/web-blue-banner-software-ui-and-development-vector-42172307.jpg)",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                }}>
+            <div className="hero min-h-screen relative">
+
+                {!imageLoaded && (
+                          <Blurhash
+                            hash="LB3^EnL}VDpyiabvk?e9MbtUj:WC"
+                            width="100%"
+                            height="100%"
+                            resolutionX={32}
+                            resolutionY={32}
+                            punch={1}
+                          />
+                        )}
+                {imageLoaded && (<img src={hero_src} className="min-h-screen object-cover bg-center" alt="" />)}
+
                 <div className="hero-overlay bg-opacity-30"></div>
                 <div className="absolute top-0 left-0 w-full text-left text-white">
                     <div className="">
@@ -70,7 +95,7 @@ const Website = () => {
             </div>
 
             <div className="flex justify-center ">
-                <img className="w-[700px] pb-10" src="https://i.ibb.co.com/WfJnDjq/Website-Development-Info-graphic-2-1.jpg" alt="" />
+                <img className="w-[700px] pb-10" src={images.website_dev_process} alt="" />
             </div>
 
 

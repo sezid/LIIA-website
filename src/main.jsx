@@ -1,4 +1,4 @@
-import { StrictMode } from 'react'
+import { StrictMode, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import {
@@ -19,14 +19,20 @@ import Website from './components/BusinessProcess/Website';
 import Airbnb from './components/Airbnb';
 import Career from './Career';
 
+
+
+
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root></Root>,
+    element: (
+          <Root></Root>
+      )
+    ,
     children:[
       {
         path:'/',
-        element:<Home></Home>
+        element:(<Home />)
       },
       {
         path:'/businessPartner',
@@ -37,14 +43,14 @@ const router = createBrowserRouter([
         path:'/businessOffer',
         element:<BusinessOffer></BusinessOffer>
       },
-      {
-        path:'/diamondResume',
-        element:<DiamondResume></DiamondResume>
-      },
-      {
-        path:'/sunshine',
-        element:<Sunshine></Sunshine>
-      },
+      // {
+      //   path:'/diamondResume',
+      //   element:<DiamondResume></DiamondResume>
+      // },
+      // {
+      //   path:'/sunshine',
+      //   element:<Sunshine></Sunshine>
+      // },
       {
         path:'/inventory',
         element:<Inventory></Inventory>
