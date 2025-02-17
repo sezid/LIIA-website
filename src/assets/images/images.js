@@ -28,6 +28,9 @@ import analyzing_features from "./analyzing_features.webp";
 import analyzing_tools from "./analyzing_tools.webp";
 import website_hero from "./website_hero.webp";
 import website_dev_process from "./website_dev_process.webp";
+import linkedin from "./linkedin.png"
+import facebook from "./facebook.png"
+
 
 export const images = {
   inventory_hero,
@@ -61,6 +64,8 @@ export const images = {
   analyzing_tools,
   website_hero,
   website_dev_process,
+  linkedin,
+  facebook
 };
 
 export default images;
