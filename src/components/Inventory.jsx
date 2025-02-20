@@ -214,13 +214,13 @@ const Inventory = () => {
         </h2>
 
         {/* Icons and Descriptions */}
-        <div className="flex justify-center items-center space-x-12">
+        <div className="flex justify-center items-center space-x-5 mt-20 mb-20">
           {/* First Icon - Increase sales */}
           <div className="text-center">
             <img
               src={images.graph}
               alt="Increase sales"
-              className="w-24 mx-auto mb-4"
+              className="w-1/2 mx-auto mb-4"
             />
             <p className="font-medium text-gray-500">Increase sales</p>
           </div>
@@ -230,7 +230,7 @@ const Inventory = () => {
             <img
               src={images.checklist}
               alt="Manage orders"
-              className="w-20 mx-auto mb-4"
+              className="w-1/2 mx-auto mb-4"
             />
             <p className="font-medium text-gray-500">Manage orders</p>
           </div>
@@ -240,7 +240,7 @@ const Inventory = () => {
             <img
               src={images.location}
               alt="End to End Tracking"
-              className="w-24 mx-auto mb-4"
+              className="w-1/2 mx-auto mb-4"
             />
             <p className="font-medium text-gray-500">End to End Tracking</p>
           </div>

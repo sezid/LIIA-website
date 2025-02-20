@@ -57,23 +57,22 @@ const Supply = () => {
           chain visibility for optimal profitability.
         </p>
       </div>
-
-      <div className="px-4 md:px-32 text-blue-500 text-left font-bold text-3xl md:text-5xl">
+      <div className="flex flex-col gap-5 text-center">
+      <div className="px-4 md:px-32 text-blue-500 font-bold text-3xl md:text-5xl">
         <p>
-          Seven Reasons to Choose LIIA <br className="hidden md:block" />{" "}
-          SMART’s Supply Chain Analytics
+          Seven Reasons to Choose LIIA SMART’s Supply Chain Analytics
         </p>
       </div>
 
       <div className="px-4 md:px-32 pt-3 md:pt-5">
         <p className="text-base md:text-xl">
           With unmatched industry experience, LIIA SMART provides best-in-class{" "}
-          <br className="hidden md:block" />
+          
           analytics solutions for supply chain planning, forecasting, and
           execution.
         </p>
       </div>
-
+      </div>
       <div className="max-w-6xl mx-auto py-10 px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Card 1 */}
