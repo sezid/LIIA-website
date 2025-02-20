@@ -49,7 +49,8 @@ const Navbar = () => {
                             </li>
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">LIIA Smart</a>
+                    <NavLink to="/"><a className="flex mx-5 text-xl font-bold">LIIA Smart</a></NavLink>
+                    
                 </div>
 
                 {/* Desktop view */}

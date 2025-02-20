@@ -39,10 +39,11 @@ const Inventory = () => {
                     resolutionX={32}
                     resolutionY={32}
                     punch={1}
+                    className="w-full h-full"
                   />
                 )}
         
-                {imageLoaded && (<img src={hero_src} className="min-h-screen object-cover bg-center" alt="" />)}
+                {imageLoaded && (<img src={hero_src} className="w-full h-full object-cover" alt="" />)}
 
         <div className="hero-overlay bg-opacity-30"></div>
       </div>
