@@ -21,12 +21,69 @@ const CareerApplication = ({ onClose }) => {
     setFormData({ ...formData, resume: e.target.files[0] });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-    alert("Application submitted successfully!");
-    onClose();
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   const formDataToSend = new FormData();
+    
+  //   for (const key in formData) {
+  //     formDataToSend.append(key, formData[key]);
+  //   }
+  
+  //   try {
+  //     const response = await fetch("http://localhost:5000/apply", {
+  //       method: "POST",
+  //       body: formDataToSend,
+  //     });
+  
+  //     const result = await response.json();
+  //     if (response.ok) {
+  //       alert("Application submitted successfully!");
+  //       onClose();
+  //     } else {
+  //       alert("Error: " + result.error);
+  //     }
+  //   } catch (error) {
+  //     console.error("Error submitting application:", error);
+  //     alert("Submission failed.");
+  //   }
+  // };
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent default form behavior
+  
+    const formDataToSend = new FormData();
+  
+    for (const key in formData) {
+      if (formData[key]) {
+        formDataToSend.append(key, formData[key]); // Append only non-empty fields
+      }
+    }
+  
+    try {
+      const response = await fetch("http://localhost:5000/apply", {
+        method: "POST",
+        body: formDataToSend,
+      });
+  
+      // Check if response is okay
+      if (!response.ok) {
+        const errorMessage = await response.text(); // Get error message
+        throw new Error(`Server Error: ${errorMessage}`);
+      }
+  
+      const result = await response.json();
+      alert("✅ Application submitted successfully!");
+      console.log("Server Response:", result);
+  
+      // Clear the form or close the modal (if applicable)
+      onClose();
+    } catch (error) {
+      console.error("🚨 Submission failed:", error);
+      alert(`⚠️ Submission failed: ${error.message}`);
+    }
   };
+  
+  
+  
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
