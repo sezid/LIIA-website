@@ -77,7 +77,7 @@ const cors = require("cors");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-const BASE_URL = `http://localhost:${PORT}`;
+const BASE_URL = process.env.BASE_URL || `http://localhost:${PORT}`;
 
 // Middleware
 app.use(express.json());
