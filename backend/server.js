@@ -76,8 +76,8 @@ const { GridFSBucket } = require("mongodb");
 const cors = require("cors");
 
 const app = express();
-const PORT = process.env.PORT || 5000;
-const BASE_URL = process.env.BASE_URL || `http://localhost:${PORT}`;
+const PORT = process.env.PORT || 5000; // Use Render's assigned port
+const BASE_URL = process.env.BASE_URL || 'https://liia-website.onrender.com'
 
 // Middleware
 app.use(express.json());
@@ -166,4 +166,6 @@ app.get("/download/:filename", async (req, res) => {
 });
 
 // Start Server
-app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`🚀 Server running at ${BASE_URL} on port ${PORT}`);
+});
