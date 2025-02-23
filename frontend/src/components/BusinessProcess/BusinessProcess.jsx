@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const BusinessProcess = () => {
     return (
-        <div>
+        <div className="mb-[300px]">
             <div><h1 className="text-5xl font-extrabold text-center pt-16">Our Services</h1></div>
             <div className="flex justify-center gap-8 pt-20 pb-[200px]">
                 <div className="card bg-teal-300 w-96 shadow-xl">

@@ -26,12 +26,13 @@ const Airbnb = () => {
             resolutionX={32}
             resolutionY={32}
             punch={1}
+            className="w-full h-full"
           />
         )}
         {imageLoaded && (
           <img
             src={hero_src}
-            className="min-h-screen object-cover bg-center"
+            className="w-full h-full object-cover"
             alt=""
           />
         )}

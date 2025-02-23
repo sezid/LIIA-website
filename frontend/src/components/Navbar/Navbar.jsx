@@ -49,7 +49,7 @@ const Navbar = () => {
                             </li>
                         </ul>
                     </div>
-                    <NavLink to="/"><a className="flex mx-5 text-xl font-bold">LIIA Smart</a></NavLink>
+                    <NavLink to="/"><a className="flex mx-5 text-xl font-bold">LIIA Smart Inc</a></NavLink>
                     
                 </div>
 
