@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const CareerApplication = ({ onClose }) => {
   const [formData, setFormData] = useState({
@@ -21,72 +23,54 @@ const CareerApplication = ({ onClose }) => {
     setFormData({ ...formData, resume: e.target.files[0] });
   };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const formDataToSend = new FormData();
-    
-  //   for (const key in formData) {
-  //     formDataToSend.append(key, formData[key]);
-  //   }
-  
-  //   try {
-  //     const response = await fetch("http://localhost:5000/apply", {
-  //       method: "POST",
-  //       body: formDataToSend,
-  //     });
-  
-  //     const result = await response.json();
-  //     if (response.ok) {
-  //       alert("Application submitted successfully!");
-  //       onClose();
-  //     } else {
-  //       alert("Error: " + result.error);
-  //     }
-  //   } catch (error) {
-  //     console.error("Error submitting application:", error);
-  //     alert("Submission failed.");
-  //   }
-  // };
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent default form behavior
-  
+    e.preventDefault();
+
     const formDataToSend = new FormData();
-  
     for (const key in formData) {
       if (formData[key]) {
-        formDataToSend.append(key, formData[key]); // Append only non-empty fields
+        formDataToSend.append(key, formData[key]);
       }
     }
-  
+
+    toast.info("Submitting your application...");
+
     try {
       const response = await fetch("https://liia-website.onrender.com/apply", {
         method: "POST",
         body: formDataToSend,
       });
-  
-      // Check if response is okay
+
       if (!response.ok) {
-        const errorMessage = await response.text(); // Get error message
+        const errorMessage = await response.text();
         throw new Error(`Server Error: ${errorMessage}`);
       }
-  
+
       const result = await response.json();
-      alert("✅ Application submitted successfully!");
+      toast.success("Application submitted successfully!");
       console.log("Server Response:", result);
-  
-      // Clear the form or close the modal (if applicable)
+
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        jobType: "",
+        portfolio: "",
+        linkedin: "",
+        reason: "",
+        resume: null,
+      });
+
       onClose();
     } catch (error) {
-      console.error("🚨 Submission failed:", error);
-      alert(`⚠️ Submission failed: ${error.message}`);
+      console.error("Submission failed:", error);
+      toast.error(`Submission failed: ${error.message}`);
     }
   };
-  
-  
-  
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+      <ToastContainer position="top-right" autoClose={3000} />
       <div className="flex flex-col bg-white p-12 rounded-lg shadow-lg relative">
         <button className="absolute top-2 right-3 text-xl" onClick={onClose}>
           &times;
