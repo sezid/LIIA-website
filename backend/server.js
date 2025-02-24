@@ -68,6 +68,110 @@
 // // Start Server
 // app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
 
+// require("dotenv").config();
+// const express = require("express");
+// const mongoose = require("mongoose");
+// const multer = require("multer");
+// const { GridFSBucket } = require("mongodb");
+// const cors = require("cors");
+
+// const app = express();
+// const PORT = process.env.PORT || 5000; // Use Render's assigned port
+// const BASE_URL = process.env.BASE_URL || 'https://liia-website.onrender.com'
+
+// // Middleware
+// app.use(express.json());
+// app.use(cors());
+
+// // MongoDB Connection
+// const mongoURI = process.env.MONGO_URI || "mongodb://localhost:27017/jobApplications";
+// mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+//   .then(() => console.log("✅ MongoDB Connected"))
+//   .catch((err) => console.error("❌ MongoDB Connection Error:", err));
+
+// const conn = mongoose.connection;
+// let gfs;
+// conn.once("open", () => {
+//   gfs = new GridFSBucket(conn.db, { bucketName: "uploads" });
+//   console.log("✅ GridFS Connected");
+// });
+
+// // Mongoose Schema for Job Applications
+// const jobSchema = new mongoose.Schema({
+//   name: String,
+//   email: String,
+//   phone: String,
+//   jobType: String,
+//   portfolio: String,
+//   linkedin: String,
+//   reason: String,
+//   resumeFilename: String, // Store full download URL
+// });
+// const JobApplication = mongoose.model("JobApplication", jobSchema);
+
+// // Multer Storage Setup (Memory)
+// const storage = multer.memoryStorage();
+// const upload = multer({ storage });
+
+// // POST Route: Submit Job Application
+// app.post("/apply", upload.single("resume"), async (req, res) => {
+//   try {
+//     if (!req.file) {
+//       return res.status(400).json({ error: "No file uploaded" });
+//     }
+
+//     const { name, email, phone, jobType, portfolio, linkedin, reason } = req.body;
+
+//     // Upload file to GridFS
+//     const uploadStream = gfs.openUploadStream(req.file.originalname, {
+//       contentType: req.file.mimetype,
+//     });
+//     uploadStream.end(req.file.buffer);
+
+//     uploadStream.on("finish", async () => {
+//       const fileUrl = `${BASE_URL}/download/${req.file.originalname}`;
+
+//       const newApplication = new JobApplication({
+//         name,
+//         email,
+//         phone,
+//         jobType,
+//         portfolio,
+//         linkedin,
+//         reason,
+//         resumeFilename: fileUrl, // Store full download URL
+//       });
+
+//       await newApplication.save();
+//       res.status(201).json({ message: "Application submitted successfully!", resumeUrl: fileUrl });
+//     });
+
+//     uploadStream.on("error", (err) => {
+//       res.status(500).json({ error: "Error uploading file" });
+//     });
+//   } catch (error) {
+//     res.status(500).json({ error: "Error saving application" });
+//   }
+// });
+
+// // GET Route: Download Resume
+// app.get("/download/:filename", async (req, res) => {
+//   try {
+//     const fileStream = gfs.openDownloadStreamByName(req.params.filename);
+//     res.set("Content-Type", "application/pdf");
+//     fileStream.pipe(res);
+//   } catch (error) {
+//     res.status(500).json({ error: "Error fetching file" });
+//   }
+// });
+
+// // Start Server
+// app.listen(PORT, "0.0.0.0", () => {
+//   console.log(`🚀 Server running at ${BASE_URL} on port ${PORT}`);
+// });
+
+
+
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
@@ -76,8 +180,8 @@ const { GridFSBucket } = require("mongodb");
 const cors = require("cors");
 
 const app = express();
-const PORT = process.env.PORT || 5000; // Use Render's assigned port
-const BASE_URL = process.env.BASE_URL || 'https://liia-website.onrender.com'
+const PORT = process.env.PORT || 5000;
+const BASE_URL = process.env.BASE_URL || "https://liia-website.onrender.com";
 
 // Middleware
 app.use(express.json());
@@ -109,9 +213,39 @@ const jobSchema = new mongoose.Schema({
 });
 const JobApplication = mongoose.model("JobApplication", jobSchema);
 
+// Mongoose Schema for Service Requests
+const serviceSchema = new mongoose.Schema({
+  name: String,
+  email: String,
+  phone: String,
+  serviceType: String,
+  message: String,
+  submittedAt: { type: Date, default: Date.now },
+});
+const ServiceRequest = mongoose.model("ServiceRequest", serviceSchema);
+
 // Multer Storage Setup (Memory)
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
+
+// 🆕 POST Route: Submit Service Request
+app.post("/submit", async (req, res) => {
+  try {
+    const { name, email, phone, serviceType, message } = req.body;
+
+    if (!name || !email || !serviceType || !message) {
+      return res.status(400).json({ error: "Missing required fields" });
+    }
+
+    const newRequest = new ServiceRequest({ name, email, phone, serviceType, message });
+    await newRequest.save();
+
+    res.status(201).json({ message: "✅ Service request submitted successfully!" });
+  } catch (error) {
+    console.error("❌ Error saving service request:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
 
 // POST Route: Submit Job Application
 app.post("/apply", upload.single("resume"), async (req, res) => {
@@ -139,18 +273,19 @@ app.post("/apply", upload.single("resume"), async (req, res) => {
         portfolio,
         linkedin,
         reason,
-        resumeFilename: fileUrl, // Store full download URL
+        resumeFilename: fileUrl,
       });
 
       await newApplication.save();
-      res.status(201).json({ message: "Application submitted successfully!", resumeUrl: fileUrl });
+      res.status(201).json({ message: "✅ Application submitted successfully!", resumeUrl: fileUrl });
     });
 
-    uploadStream.on("error", (err) => {
-      res.status(500).json({ error: "Error uploading file" });
+    uploadStream.on("error", () => {
+      res.status(500).json({ error: "❌ Error uploading file" });
     });
   } catch (error) {
-    res.status(500).json({ error: "Error saving application" });
+    console.error("❌ Error saving job application:", error);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
@@ -161,7 +296,7 @@ app.get("/download/:filename", async (req, res) => {
     res.set("Content-Type", "application/pdf");
     fileStream.pipe(res);
   } catch (error) {
-    res.status(500).json({ error: "Error fetching file" });
+    res.status(500).json({ error: "❌ Error fetching file" });
   }
 });
 
