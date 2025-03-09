@@ -146,7 +146,7 @@ const Inventory = () => {
       </div>
 
       <div className="pt-10 flex justify-center">
-        <img src={images.inventory_steps} alt="" />
+        <img src={images.inventory_steps} className="w-3/4" alt="" />
       </div>
 
       <div className="pt-10 pb-8 text-black text-center font-medium text-3xl">

@@ -3,7 +3,7 @@ import inventory_process from "./inventory_process.webp";
 import inventory_graph_1 from "./inventory_graph_1.webp";
 import inventory_graph_2 from "./inventory_graph_2.webp";
 import inventory_features from "./inventory_features.webp";
-import inventory_steps from "./inventory_steps.webp";
+import inventory_steps from "./inventory_steps.png";
 import location from "./location.webp";
 import graph from "./graph.webp";
 import checklist from "./checklist.webp";
@@ -30,6 +30,9 @@ import website_hero from "./website_hero.webp";
 import website_dev_process from "./website_dev_process.webp";
 import linkedin from "./linkedin.png"
 import facebook from "./facebook.png"
+import linkedin_contact from "./linkedin_contact.png"
+import facebook_contact from "./facebook_contact.png"
+
 
 
 export const images = {
@@ -65,7 +68,10 @@ export const images = {
   website_hero,
   website_dev_process,
   linkedin,
-  facebook
+  facebook,
+  facebook_contact,
+  linkedin_contact
+
 };
 
 export default images;

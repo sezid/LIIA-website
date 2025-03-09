@@ -82,7 +82,7 @@ const Analyzing = () => {
         <img
           src={images.analyzing_features}
           alt=""
-          className="w-[600px] mx-auto mb-4"
+          className="w-[600px] md:w-1/2 mx-auto mb-4"
         />
       </div>
 

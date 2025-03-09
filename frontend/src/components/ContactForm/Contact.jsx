@@ -1,15 +1,16 @@
-import React, { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import React, { useState, useEffect } from "react";
+import { FaCheckCircle } from "react-icons/fa";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    serviceType: "Other",  // ✅ Changed from 'service' to 'serviceType'
+    serviceType: "None",  
     message: "",
   });
+
+  const [submissionSuccess, setSubmissionSuccess] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -17,7 +18,7 @@ const ContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    toast.info("Submitting your request...");
+    setSubmissionSuccess(false);
 
     try {
       const response = await fetch("https://liia-website.onrender.com/submit", {
@@ -28,26 +29,37 @@ const ContactForm = () => {
         body: JSON.stringify(formData),
       });
 
-      const data = await response.json();
       if (response.ok) {
-        toast.success("Form submitted successfully! We will get back to you soon.");
         setFormData({ name: "", email: "", phone: "", serviceType: "", message: "" });
-      } else {
-        toast.error(`Error: ${data.error || "Something went wrong"}`);
+        setSubmissionSuccess(true);
+
+        // Auto-hide success message after 4 seconds
+        setTimeout(() => {
+          setSubmissionSuccess(false);
+        }, 3000);
       }
     } catch (error) {
-      toast.error("Submission failed. Please try again.");
+      console.error("Submission failed", error);
     }
   };
 
   return (
-    <div className="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-lg">
-      <ToastContainer position="top-right" autoClose={3000} />
+    <div className="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-lg relative">
+      {submissionSuccess && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-sm sm:max-w-lg relative">
+            <div className="flex flex-col justify-center items-center gap-5 text-center">
+              <FaCheckCircle size={50} className="text-green-600" />
+              <span>Form submitted successfully! We will get back to you soon.</span>
+            </div>
+          </div>
+        </div>
+      )}
       
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Name, Email, Phone */}
         <label className="font-bold">Name</label>
-        <input type="text" name="name" placeholder="Your Name" value={formData.name} onChange={handleChange} className="border p-2 rounded w-full" required />
+        <input type="text" name="name" value={formData.name} onChange={handleChange} className="border p-2 rounded w-full" required />
         
         <div className="flex justify-between gap-5">
           <div className="flex flex-col gap-2">
@@ -80,7 +92,7 @@ const ContactForm = () => {
         </div>
 
         {/* Submit Button */}
-        <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded">Send Message</button>
+        <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-700 transition">Submit Message</button>
       </form>
     </div>
   );

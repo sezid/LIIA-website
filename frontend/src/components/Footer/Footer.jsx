@@ -50,11 +50,11 @@ const Footer = () => (
           <div>
             <h6 className="font-bold text-lg text-white">Social</h6>
             <div className=" flex flex-row gap-4 mt-2">
-              <a href="https://www.linkedin.com/company/liia-smart-inc/">
-                <img src={images.linkedin} className="w-[25px]" alt="" />
-              </a>
-              <a href="https://www.facebook.com/Media130/">
+            <a href="https://www.facebook.com/Media130/" target="_blank" rel="noopener noreferrer">
                 <img src={images.facebook} className="w-[25px]" alt="" />
+              </a>
+              <a href="https://www.linkedin.com/company/liia-smart-inc/" target="_blank" rel="noopener noreferrer">
+                <img src={images.linkedin} className="w-[25px]" alt="" />
               </a>
             </div>
           </div>
