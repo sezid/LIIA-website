@@ -32,6 +32,8 @@ import linkedin from "./linkedin.png"
 import facebook from "./facebook.png"
 import linkedin_contact from "./linkedin_contact.png"
 import facebook_contact from "./facebook_contact.png"
+import ml_supply_chain_image from "./ml_supply_chain_image.jpeg"
+
 
 
 
@@ -70,7 +72,8 @@ export const images = {
   linkedin,
   facebook,
   facebook_contact,
-  linkedin_contact
+  linkedin_contact,
+  ml_supply_chain_image
 
 };
 

@@ -73,7 +73,7 @@ const Supply = () => {
         </p>
       </div>
       </div>
-      <div className="max-w-6xl mx-auto py-10 px-4">
+      <div className="max-w-6xl mx-auto py-5 px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Card 1 */}
           <div className="bg-teal-400 p-6 rounded-lg text-left">
@@ -148,40 +148,89 @@ const Supply = () => {
               processes, ensuring that your supply chain remains flexible and
               responsive to changing market conditions.
             </p>
+            
+          </div>
+          {/* Card 7 */}
+          <div className="bg-teal-400 p-6 rounded-lg text-left">
+            <h3 className="font-bold text-2xl">07</h3>
+            <h3 className="font-semibold text-xl">
+            AI-Powered Shipment Optimization
+            </h3>
+            <p className="mt-4">
+            Our ML-based system will optimize shipment tracking by analyzing data to predict delivery dates, optimize routes and detect fraud. It will also alert for delays and suggest proactive measures, enhancing supply chain efficiency and reducing costs.
+
+            </p>
+            
+          </div>
+          {/* Card 8 */}
+          <div className="bg-teal-400 p-6 rounded-lg text-left">
+            <h3 className="font-bold text-2xl">08</h3>
+            <h3 className="font-semibold text-xl">
+            Estimated Delivery Date
+            </h3>
+            <p className="mt-4">
+              Predict Accurate delivery date based on real time data. 
+            </p>
+            
+          </div>
+          {/* Card 7 */}
+          <div className="bg-teal-400 p-6 rounded-lg text-left">
+            <h3 className="font-bold text-2xl">09</h3>
+            <h3 className="font-semibold text-xl">
+            Fraud Prevention
+            </h3>
+            <p className="mt-4">
+                Protect against fradulant activities with AI-driven alerts.
+            </p>
+            
           </div>
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto py-10 px-4">
-        <div className="flex flex-col lg:flex-row gap-6 lg:gap-10 justify-center p-4">
+      <div className="max-w-6xl mx-auto">
+        
           {/* Image container */}
-          <div className="rounded-lg text-left">
+          
             <img
               src={images.supply_AL_ML}
               alt="Increase sales"
-              className="w-full lg:w-[700px] h-auto lg:h-[1100px] object-cover"
+              className="w-1/2 mx-auto -rotate-90"
             />
-          </div>
-
+          
+          
           {/* Text container */}
-          <div className="bg-teal-400 p-6 rounded-lg text-left w-full lg:w-[900px] h-auto lg:h-[400px]">
+          {/* <div className="flex flex-col w-1/3 gap-5">
+          <div className="bg-teal-400 p-6 rounded-lg text-left w-full lg:w-[500px] h-auto lg:h-[300px]">
             <h3 className="font-bold text-xl lg:text-2xl">07</h3>
+            <h3 className="font-semibold text-xl">AI-Powered Shipment Optimization</h3>
 
             <p className="mt-4 text-base lg:text-lg">
-              To enhance shipment tracking and visibility using AI and ML in our
-              supply chain analytics system, we will leverage data from various
-              sources to optimize routes, estimate delivery dates, and manage
-              fleets efficiently. By analyzing historical and real-time data,
-              our AI algorithms will predict the best routes, balance inventory
-              levels, and detect potential fraud. The system will also generate
-              alerts for potential delays and suggest proactive measures to
-              ensure timely deliveries. This approach ensures seamless
-              integration of shipment tracking with broader supply chain
-              management, driving efficiency and reducing costs.
+            Our ML-based system will optimize shipment tracking by analyzing data to predict delivery dates, optimize routes and detect fraud. It will also alert for delays and suggest proactive measures, enhancing supply chain efficiency and reducing costs.
             </p>
           </div>
-        </div>
 
+          <div className="bg-teal-400 p-6 rounded-lg text-left w-full lg:w-[500px] h-auto lg:h-[300px]">
+            <h3 className="font-bold text-xl lg:text-2xl">08</h3>
+
+            <p className="mt-4 text-base lg:text-lg">
+            Our ML-based system will optimize shipment tracking by analyzing data to predict delivery dates, optimize routes and detect fraud. It will also alert for delays and suggest proactive measures, enhancing supply chain efficiency and reducing costs.
+            </p>
+          </div>
+          <div className="bg-teal-400 p-6 rounded-lg text-left w-full lg:w-[500px] h-auto lg:h-[300px]">
+            <h3 className="font-bold text-xl lg:text-2xl">09</h3>
+
+            <p className="mt-4 text-base lg:text-lg">
+            Our ML-based system will optimize shipment tracking by analyzing data to predict delivery dates, optimize routes and detect fraud. It will also alert for delays and suggest proactive measures, enhancing supply chain efficiency and reducing costs.
+            </p>
+          </div>
+          </div> */}
+          
+       
+
+        
+
+        <img className="mx-auto w-[950px]" src={images.ml_supply_chain_image} alt="" />
+        
         <div className="flex flex-col md:flex-row w-full p-5 md:p-10">
           {/* Left part with "Business Impact" */}
           <div className="bg-teal-400 text-white w-full md:w-1/3 flex items-center justify-center p-6 md:p-8">
