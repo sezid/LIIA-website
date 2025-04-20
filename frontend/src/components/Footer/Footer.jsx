@@ -22,7 +22,7 @@ const Footer = () => (
         </p>
         <p>
           <span className="font-bold">Email</span> <br />
-          liia.smart@liiasmart.com
+          contact@liiasmart.com
         </p>
         <p>
           <span className="font-bold">Phone</span> <br />

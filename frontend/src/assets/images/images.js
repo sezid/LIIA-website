@@ -3,7 +3,7 @@ import inventory_process from "./inventory_process.webp";
 import inventory_graph_1 from "./inventory_graph_1.webp";
 import inventory_graph_2 from "./inventory_graph_2.webp";
 import inventory_features from "./inventory_features.webp";
-import inventory_steps from "./inventory_steps.png";
+import inventory_steps from "./inventory_steps.webp";
 import location from "./location.webp";
 import graph from "./graph.webp";
 import checklist from "./checklist.webp";

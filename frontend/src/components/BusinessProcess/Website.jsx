@@ -37,13 +37,13 @@ const Website = () => {
 
                 <div className="hero-overlay bg-opacity-30"></div>
                 <div className="absolute top-0 left-0 w-full text-left text-white">
-                    <div className="">
+                    
                         <div className="p-10">
                             <h1 className="mb-5 text-5xl font-bold">WEBSITE DEVELOPMENT</h1>
                             {/* <button className="btn btn-primary">Get Started</button> */}
                             <p className="font-bold text-2xl text-blue-600">Transform Your Online Presence with Custom Solutions</p>
                         </div>
-                    </div>
+                    
                 </div>
             </div>
 

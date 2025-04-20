@@ -38,13 +38,13 @@ const Supply = () => {
 
         <div className="hero-overlay bg-opacity-30"></div>
         <div className="absolute top-0 left-0 w-full text-left text-white">
-          <div className="">
+          
             <div className="p-10">
               <h1 className="mb-5 text-3xl md:text-5xl font-bold">
                 SUPPLY CHAIN ANALYTICS
               </h1>
             </div>
-          </div>
+         
         </div>
       </div>
 
@@ -60,7 +60,7 @@ const Supply = () => {
       <div className="flex flex-col gap-5 text-center">
       <div className="px-4 md:px-32 text-blue-500 font-bold text-3xl md:text-5xl">
         <p>
-          Seven Reasons to Choose LIIA SMART’s Supply Chain Analytics
+          Nine Reasons to Choose LIIA SMART’s Supply Chain Analytics
         </p>
       </div>
 
@@ -73,116 +73,81 @@ const Supply = () => {
         </p>
       </div>
       </div>
-      <div className="max-w-6xl mx-auto py-5 px-4">
+      <div className="max-w-7xl mx-auto py-5 px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Card 1 */}
-          <div className="bg-teal-400 p-6 rounded-lg text-left">
-            <h3 className="font-bold text-2xl">01</h3>
-            <h3 className="font-semibold text-xl">Improved Forecasting</h3>
-            <p className="mt-4">
-              Demand forecasting capabilities through machine learning allow you
-              to accurately predict customer demand and reduce stock shortages
-              and excess inventory.
-            </p>
+          <div className="bg-teal-400 p-6 rounded-lg text-center">
+            
+            <h3 className="font-semibold text-xl">Machine Learning Driven Smart Forecasting</h3>
+            
           </div>
 
           {/* Card 2 */}
-          <div className="bg-teal-400 p-6 rounded-lg text-left">
-            <h3 className="font-bold text-2xl">02</h3>
+          <div className="bg-teal-400 p-6 rounded-lg text-center">
+            
             <h3 className="font-semibold text-xl">
               Enhanced Inventory Optimization
             </h3>
-            <p className="mt-4">
-              AI/ML and processed-based recommendations to augment
-              humandecisions in real-time.
-            </p>
+            
           </div>
 
           {/* Card 3 */}
-          <div className="bg-teal-400 p-6 rounded-lg text-left">
-            <h3 className="font-bold text-2xl">03</h3>
+          <div className="bg-teal-400 p-6 rounded-lg text-center">
+            
             <h3 className="font-semibold text-xl">
-              High Performing Supply Chain
+              Agentic AI Driven Supply Chain
             </h3>
-            <p className="mt-4">
-              LIIA SMART’s unparalleled experience in computational intelligence
-              delivers Supply Chain Planning solutions equipped with advanced AI
-              and ML capabilities, allowing businesses to optimize inventory
-              levels, adapt to changing circumstances, and ultimately improve
-              the overall efficiency and effectiveness of supply chain
-              operations.
-            </p>
+            
           </div>
 
           {/* Card 4 */}
-          <div className="bg-teal-400 p-6 rounded-lg text-left">
-            <h3 className="font-bold text-2xl">04</h3>
+          <div className="bg-teal-400 p-6 rounded-lg text-center">
+            
             <h3 className="font-semibold text-xl">
               Sourcing Optimization Alert
             </h3>
-            <p className="mt-4">
-              Our analytics tools optimize sourcing decisions by analyzing
-              supplier performance, costs, and lead times, ensuring you select
-              the best suppliers for your business needs.
-            </p>
+            
           </div>
 
           {/* Card 5 */}
-          <div className="bg-teal-400 p-6 rounded-lg text-left">
-            <h3 className="font-bold text-2xl">05</h3>
-            <h3 className="font-semibold text-xl">Increased Responsiveness</h3>
-            <p className="mt-4">
-              Respond to changing market conditions and customer demands more
-              quickly while increasing overall responsiveness and improving your
-              overall competitiveness.
-            </p>
+          <div className="bg-teal-400 p-6 rounded-lg text-center">
+            
+            <h3 className="font-semibold text-xl">Agile Supply Chain Activity</h3>
+            
           </div>
           {/* Card 6 */}
-          <div className="bg-teal-400 p-6 rounded-lg text-left">
-            <h3 className="font-bold text-2xl">06</h3>
+          <div className="bg-teal-400 p-6 rounded-lg text-center">
+            
             <h3 className="font-semibold text-xl">
-              Adaptive Metrics and Processes
+              Smart Risk Control
             </h3>
-            <p className="mt-4">
-              We enable the adaptive determination of supply chain metrics and
-              processes, ensuring that your supply chain remains flexible and
-              responsive to changing market conditions.
-            </p>
+            
             
           </div>
           {/* Card 7 */}
-          <div className="bg-teal-400 p-6 rounded-lg text-left">
-            <h3 className="font-bold text-2xl">07</h3>
+          <div className="bg-teal-400 p-6 rounded-lg text-center">
+            
             <h3 className="font-semibold text-xl">
             AI-Powered Shipment Optimization
             </h3>
-            <p className="mt-4">
-            Our ML-based system will optimize shipment tracking by analyzing data to predict delivery dates, optimize routes and detect fraud. It will also alert for delays and suggest proactive measures, enhancing supply chain efficiency and reducing costs.
-
-            </p>
+            
             
           </div>
           {/* Card 8 */}
-          <div className="bg-teal-400 p-6 rounded-lg text-left">
-            <h3 className="font-bold text-2xl">08</h3>
+          <div className="bg-teal-400 p-6 rounded-lg text-center">
+            
             <h3 className="font-semibold text-xl">
-            Estimated Delivery Date
+            Delivery Lead Time Prediction
             </h3>
-            <p className="mt-4">
-              Predict Accurate delivery date based on real time data. 
-            </p>
             
           </div>
           {/* Card 7 */}
-          <div className="bg-teal-400 p-6 rounded-lg text-left">
-            <h3 className="font-bold text-2xl">09</h3>
+          <div className="bg-teal-400 p-6 rounded-lg text-center">
+            
             <h3 className="font-semibold text-xl">
             Fraud Prevention
             </h3>
-            <p className="mt-4">
-                Protect against fradulant activities with AI-driven alerts.
-            </p>
-            
+        
           </div>
         </div>
       </div>
@@ -194,7 +159,7 @@ const Supply = () => {
             <img
               src={images.supply_AL_ML}
               alt="Increase sales"
-              className="w-1/2 mx-auto -rotate-90"
+              className="mx-auto sm:w-[1200px] md:w-full"
             />
           
           

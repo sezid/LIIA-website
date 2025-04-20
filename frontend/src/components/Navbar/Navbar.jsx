@@ -25,7 +25,7 @@ const Navbar = () => {
                             tabIndex={0}
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                             <li>
-                                <NavLink to="/">HOME</NavLink>
+                                <NavLink to="/home">HOME</NavLink>
                                 {/* <ul className="p-2">
                                     <li><NavLink to="/businessPartner">BUSINESS PARTNER</NavLink></li>
                                 </ul> */}
@@ -37,9 +37,9 @@ const Navbar = () => {
                                     <li><NavLink to="/sunshine">SUNSHINE AIRBNB CLEANING</NavLink></li>
                                 </ul>
                             </li> */}
-                            <li><NavLink to="/inventory">INVENTORY MANAGEMENT SYSTEM</NavLink></li>
-                            <li><NavLink to="/supply">SUPPLY CHAIN ANALYTICS</NavLink></li>
-                            <li><NavLink to="/airbnb">AIRBNB ANALYTICS</NavLink></li>
+                            <li><NavLink to="/inventorymanagement">INVENTORY MANAGEMENT SYSTEM</NavLink></li>
+                            <li><NavLink to="/supplychain">SUPPLY CHAIN ANALYTICS</NavLink></li>
+                            <li><NavLink to="/airbnbanalytics">AIRBNB ANALYTICS</NavLink></li>
                             <li>
                                 <NavLink to="/businessProcess">BUSINESS PROCESS MODELING</NavLink>
                                 <ul className="p-2">
@@ -74,9 +74,9 @@ const Navbar = () => {
                         </li> */}
 
                         {/* Other links */}
-                        <li><NavLink to="/inventory" className="btn btn-ghost">INVENTORY MANAGEMENT SYSTEM</NavLink></li>
-                        <li><NavLink to="/supply" className="btn btn-ghost">SUPPLY CHAIN ANALYTICS</NavLink></li>
-                        <li><NavLink to="/airbnb" className="btn btn-ghost">AIRBNB ANALYTICS</NavLink></li>
+                        <li><NavLink to="/inventorymanagement" className="btn btn-ghost">INVENTORY MANAGEMENT SYSTEM</NavLink></li>
+                        <li><NavLink to="/supplychain" className="btn btn-ghost">SUPPLY CHAIN ANALYTICS</NavLink></li>
+                        <li><NavLink to="/airbnbanalytics" className="btn btn-ghost">AIRBNB ANALYTICS</NavLink></li>
 
                         {/* BUSINESS PROCESS MODELING with submenu */}
                         <li className="relative group">

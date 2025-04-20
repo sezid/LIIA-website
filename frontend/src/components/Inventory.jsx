@@ -19,7 +19,7 @@ const Inventory = () => {
 
   return (
     <div>
-      <div className="text-center bottom-0 left-0 w-full text-left">
+      {/* <div className="text-center bottom-0 left-0 w-full text-left">
         <div className="bg-white bg-opacity-30 w-full">
           <div className="p-3">
             <h1 className="mb-5 text-3xl md:text-5xl font-bold">
@@ -27,7 +27,7 @@ const Inventory = () => {
             </h1>
           </div>
         </div>
-      </div>
+      </div> */}
       <div
         className="hero min-h-screen relative"
       >
@@ -46,6 +46,15 @@ const Inventory = () => {
                 {imageLoaded && (<img src={hero_src} className="w-full h-full object-cover" alt="" />)}
 
         <div className="hero-overlay bg-opacity-30"></div>
+            <div className="absolute top-0 left-0 w-full text-left text-black">
+              
+                <div className="p-10">
+                  <h1 className="mb-5 text-3xl md:text-5xl font-bold text-white">
+                  LIIA SMART INVENTORY MANAGEMENT
+                  </h1>
+                </div>
+              
+            </div>
       </div>
 
       <div className="p-16 text-center font-bold text-2xl">
@@ -159,7 +168,7 @@ const Inventory = () => {
       <div className="max-w-6xl mx-auto py-10 px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Card 1 */}
-          <div className="bg-teal-400 p-6 rounded-lg text-center">
+          <div className="bg-teal-400 p-6 rounded-lg text-center h-auto">
             <h3 className="font-semibold text-xl">Low Cost</h3>
             <p className="mt-4">
               Keep your expenses low with a cost-effective inventory management
@@ -183,9 +192,9 @@ const Inventory = () => {
               Grow your inventory system effortlessly as your business expands.
             </p>
           </div>
-
+          
           {/* Card 4 */}
-          <div className="bg-teal-400 p-6 rounded-lg text-center">
+          {/* <div className="bg-teal-400 p-6 rounded-lg text-center">
             <h3 className="font-semibold text-xl">
               No Need for Heavy Software and IT Implementation
             </h3>
@@ -195,7 +204,7 @@ const Inventory = () => {
             </p>
           </div>
 
-          {/* Card 5 */}
+          
           <div className="bg-teal-400 p-6 rounded-lg text-center">
             <h3 className="font-semibold text-xl">
               System Tracks Stock Level and Flags Deviations
@@ -204,8 +213,34 @@ const Inventory = () => {
               Automatically monitor stock levels and receive real-time alerts on
               discrepancies.
             </p>
-          </div>
+          </div> */}
+          
         </div>
+
+
+        <div className="md:flex gap-6 mt-6 md:mx-[150px]">
+        {/* Card 4 */}
+        <div className="bg-teal-400 p-6 rounded-lg text-center">
+            <h3 className="font-semibold text-xl">
+              No Need for Heavy Software and IT Implementation
+            </h3>
+            <p className="mt-4">
+              Operate seamlessly without the burden of heavy software or IT
+              infrastructure.
+            </p>
+          </div>
+          
+          {/* Card 5 */}
+          <div className="bg-teal-400 p-6 rounded-lg text-center mt-6 md:mt-0">
+            <h3 className="font-semibold text-xl">
+              System Tracks Stock Level and Flags Deviations
+            </h3>
+            <p className="mt-4">
+              Automatically monitor stock levels and receive real-time alerts on
+              discrepancies.
+            </p>
+          </div>
+          </div>      
       </div>
 
       <div className="max-w-6xl mx-auto py-10 text-center">

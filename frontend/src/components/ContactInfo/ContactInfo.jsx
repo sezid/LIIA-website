@@ -23,7 +23,7 @@ const ContactInfo = () => {
 
             <div className="flex items-center space-x-3">
                 <span className="text-3xl"><MdEmail /></span>
-                <p>liia.smart@liiasmart.com</p>
+                <p>contact@liiasmart.com</p>
             </div>
 
             {/* Social Media Icons */}

@@ -39,13 +39,13 @@ const Airbnb = () => {
 
         <div className="hero-overlay bg-opacity-30"></div>
         <div className="absolute top-0 left-0 w-full text-left text-black">
-          <div className="">
+          
             <div className="p-10">
-              <h1 className="mb-5 text-3xl md:text-5xl font-bold">
+              <h1 className="mb-5 text-3xl md:text-5xl font-bold text-white">
                 AIRBNB MARKET ANALYTICS
               </h1>
             </div>
-          </div>
+          
         </div>
       </div>
 

@@ -40,13 +40,13 @@ const Analyzing = () => {
         
         <div className="hero-overlay bg-opacity-30"></div>
         <div className="absolute top-0 left-0 w-full text-left text-white">
-          <div className="">
+          
             <div className="p-10">
               <h1 className="mb-5 text-3xl md:text-5xl font-bold">
-                Analyzing Business Models
+                ANALYZING BUSINESS MODELS
               </h1>
             </div>
-          </div>
+          
         </div>
       </div>
 

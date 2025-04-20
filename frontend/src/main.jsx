@@ -18,6 +18,7 @@ import Analyzing from './components/BusinessProcess/Analyzing';
 import Website from './components/BusinessProcess/Website';
 import Airbnb from './components/Airbnb';
 import Career from './Career';
+import { Navigate } from 'react-router-dom';
 
 
 
@@ -31,7 +32,11 @@ const router = createBrowserRouter([
     ,
     children:[
       {
-        path:'/',
+        path: "/",
+        element: <Navigate to="/home" replace />, // Redirect to /home
+      },
+      {
+        path:'/home',
         element:(<Home />)
       },
       {
@@ -52,15 +57,15 @@ const router = createBrowserRouter([
       //   element:<Sunshine></Sunshine>
       // },
       {
-        path:'/inventory',
+        path:'/inventorymanagement',
         element:<Inventory></Inventory>
       },
       {
-        path:'/supply',
+        path:'/supplychain',
         element:<Supply></Supply>
       },
       {
-        path:'/airbnb',
+        path:'/airbnbanalytics',
         element:<Airbnb></Airbnb>
       },
       {

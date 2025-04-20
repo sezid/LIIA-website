@@ -46,7 +46,6 @@ const Career = () => {
                      <ul className="list-disc list-inside space-y-2 text-lg text-gray-700">
                          <li>Innovation at the Core</li>
                          <li>Work-Life Balance</li>
-                         <li>Work-Life Balance</li>
                          <li>A Collaborative Environment</li>
                          <li>Competitive Benefits</li>
                      </ul>
@@ -68,26 +67,7 @@ const Career = () => {
                  </section>
 
 
-                 {/* <section className="bg-white p-8 shadow-md rounded-lg mt-8">
-                     <h2 className="text-3xl font-semibold text-gray-900 mb-4">Internships and Graduate Programs</h2>
-                     <p className="text-lg text-gray-700 mb-6">
-                         Are you a recent graduate or student looking to kickstart your career in supply chain analytics, AI, or business modeling?
-                         At LIIA SMART INC., we offer exciting internship and co-op opportunities that provide real-world experience
-                         in a fast-paced and innovative environment.
-                     </p>
-                     <h3 className="text-2xl font-semibold text-gray-900 mb-4">Areas of Focus:</h3>
-                     <ul className="list-disc list-inside space-y-2 text-lg text-gray-700">
-                         <li>Supply Chain Analytics</li>
-                         <li>Data Science and AI</li>
-                         <li>IT System Development</li>
-                         <li>Business Development</li>
-                     </ul>
-                     <button 
-                        className="mt-6 bg-green-600 text-white px-6 py-3 rounded hover:bg-green-700" 
-                        onClick={openModal}>
-                        Apply for Internships
-                    </button>
-                 </section> */}
+                
 
                 
             </div>
