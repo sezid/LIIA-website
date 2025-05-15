@@ -13,7 +13,7 @@ const ContactInfo = () => {
         <div className="space-y-4 text-lg">
             <div className="flex items-center space-x-3">
                 <span className="text-3xl"><MdLocationOn /></span>
-                <p>628 Abbot Ave, Daly City, CA 94014</p>
+                <p>50 California St, San Francisco, CA 94111</p>
             </div>
 
             <div className="flex items-center space-x-3">

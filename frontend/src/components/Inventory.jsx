@@ -1,20 +1,88 @@
 import React, { useState, useEffect } from "react";
 import images from "../../src/assets/images/images";
-import { Blurhash } from "react-blurhash";
+import { Box, MapPinned, TrendingUp, Rocket, FileText, Settings, Target } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Inventory = () => {
 
-  const hero_src = images.inventory_hero;
+    const [current, setCurrent] = useState(0);
   
-    const [imageLoaded, setImageLoaded] = useState(false);
+    const im = [
+      images.inventory_system,
+      images.inventory_analyse,
+      images.airbnb_success_pic,
+    ];
+
+    const steps = [
+      {
+        title: "Requirement Gathering",
+        phase: "Kickoff",
+        icon: <Rocket className="w-6 h-6 text-cyan-500" />,
+        color: "bg-cyan-400",
+      },
+      {
+        title: "Selection & Customization",
+        phase: "Planning",
+        icon: <FileText className="w-6 h-6 text-purple-800" />,
+        color: "bg-purple-800",
+      },
+      {
+        title: "System Setup, Data Migration & Testing",
+        phase: "Execution",
+        icon: <Settings className="w-6 h-6 text-purple-500" />,
+        color: "bg-purple-400",
+      },
+      {
+        title: "Training & Post Implementation",
+        phase: "Go Live",
+        icon: <Target className="w-6 h-6 text-red-600" />,
+        color: "bg-red-500",
+      },
+    ];
+
+    const features = [
+      {
+        title: "Smart Stock Control",
+        description:
+          "Automated alerts and real-time tracking to prevent shortages and overstocking.",
+        image: images.inventory_stock  
+      },
+      {
+        title: "Insightful Forecasting",
+        description:
+          "Use clear data to make accurate, informed business decisions.",
+        image:images.inventory_forecasting  
+      },
+      {
+        title: "Multi-Location Management",
+        description:
+          "Easily manage inventory across multiple stores or warehouses.",
+          image:images.inventory_location  
+
+      },
+      {
+        title: "Scalable & Cost-Efficient",
+        description:
+          "Grows with your business—no complex setup or costly systems required.",
+        image: images.inventory_scalable  
+      },
+      {
+        title: "Streamlined Operations",
+        description:
+          "Improve workflow, reduce manual work, and boost efficiency.",
+        image: images.inventory_operation  
+      },
+    ];
+  
+
   
     useEffect(() => {
-      const img = new Image();
-      img.onload = () => {
-        setImageLoaded(true);
-      };
-      img.src = hero_src;
-    }, [hero_src]);
+      const interval = setInterval(() => {
+        setCurrent((prev) => (prev + 1) % im.length);
+      }, 4000); // Change every 4 seconds
+      return () => clearInterval(interval);
+    }, []);
+  
 
 
   return (
@@ -28,260 +96,148 @@ const Inventory = () => {
           </div>
         </div>
       </div> */}
-      <div
-        className="hero min-h-screen relative"
-      >
-        {!imageLoaded && (
-                  <Blurhash
-                    hash="LtIr~toetmoz~TRjkDf,x^aejEoz"
-                    width="100%"
-                    height="100%"
-                    resolutionX={32}
-                    resolutionY={32}
-                    punch={1}
-                    className="w-full h-full"
-                  />
-                )}
-        
-                {imageLoaded && (<img src={hero_src} className="w-full h-full object-cover" alt="" />)}
-
-        <div className="hero-overlay bg-opacity-30"></div>
-            <div className="absolute top-0 left-0 w-full text-left text-black">
-              
-                <div className="p-10">
-                  <h1 className="mb-5 text-3xl md:text-5xl font-bold text-white">
-                  LIIA SMART INVENTORY MANAGEMENT
-                  </h1>
-                </div>
-              
+      <div className="min-h-[90vh] relative flex items-center justify-center text-white px-4 bg-[url('https://liia-cdn.vercel.app/inventory_hero.webp')] bg-cover bg-center">
+             <div className="absolute inset-0 bg-black opacity-40"></div>
+            <div className="relative text-center max-w-4xl">
+              <h1 className="text-4xl md:text-7xl font-extrabold mb-6">
+              Smarter Inventory Stronger Business
+              </h1>
+              <p className="text-md md:text-2xl text-white/90 mb-6">
+              Transform Your Inventory — Unlock Efficiency, Boost Growth
+              </p>
+              <button className="bg-green-500 hover:bg-green-600 text-white font-medium px-8 py-3 rounded-full transition duration-300 text-xl">
+                Get A Quote
+              </button>
             </div>
-      </div>
-
-      <div className="p-16 text-center font-bold text-2xl">
-        <p>
-          Optimize and strategize your supply chain execution with our advanced
-          Inventory Management System. We provide comprehensive data analytics
-          to help you determine which items to restock, forecast demand
-          accurately, and assess risks effectively. Enhance your supply chain
-          efficiency and make informed decisions with our tailored solutions.
-        </p>
-      </div>
-
-      <div className="mx-26 text-green-500 text-center font-bold text-5xl">
-        <p>
-          Optimize Inventory
-          <br />
-          Drive Customer Satisfaction <br />
-          Drive Profitability
-        </p>
-      </div>
-
-      <div className="p-16 text-center font-medium text-xl">
-        <p>
-          Inventory tracking can be time-consuming for many small and
-          medium-sized businesses. <br /> Our smart system will help you
-          effectively manage your stock, so you always know what you have <br />{" "}
-          and what you need before you even need it.
-        </p>
-      </div>
-
-      <div className="flex justify-center">
-        <img src={images.inventory_process} alt="" />
-      </div>
-
-      <div className="py-9 text-blue-500 text-center font-semibold text-5xl flex justify-center">
-        <p>Understand Your Current Inventory and What Needs Restocking</p>
-      </div>
-
-      <div className="pl-20 text-left font-bold text-2xl">
-        <p>Easy Visibility of Inventory on Hand</p>
-      </div>
-
-      <div className="pl-20 pr-20 pt-3 text-left font-normal text-xl">
-        <p>
-          Complete and clear visibility of current inventory on hand, inventory
-          on order, inventory in transit through our python-based system. This
-          easy to use and low-cost system can readily transform your inventory
-          visibility across the product families, locations, programs.
-        </p>
-      </div>
-
-      <div className="pt-10 flex justify-center">
-        <img src={images.inventory_graph_1} alt="" />
-      </div>
-
-      <div className="pl-20 text-left font-bold text-2xl">
-        <p>Stay on Top of Inventory</p>
-      </div>
-
-      <div className="pl-20 pr-20 pt-3 text-left font-normal text-xl">
-        <p>
-          Our Python-based inventory system tracks real-time SKU data and
-          automatically provides monthly updates on any deviations in stock
-          levels. This allows businesses to stay ahead of inventory shortages
-          and ensures timely stock replenishment, improving overall efficiency
-          and reducing the risk of stockouts for high priority units.
-        </p>
-      </div>
-
-      <div className="pt-10 flex justify-center">
-        <img src={images.inventory_graph_2} alt="" />
-      </div>
-
-      <div className="pt-6 pb-8 text-black text-center font-semibold text-5xl">
-        <p>
-          Key Benefits of LIIA Smart Inventory <br /> Management System
-        </p>
-      </div>
-
-      <div className="pt-10 flex justify-center">
-        <img src={images.inventory_features} alt="" />
-      </div>
-
-      <div className="pt-6 pb-8 text-black text-center font-semibold text-5xl">
-        <p>End to End Inventory IT System Implementation</p>
-      </div>
-
-      <div className="pl-20 pr-20 pt-3 text-center font-normal text-xl">
-        <p>
-          The Implementation project involves putting a full cycle inventory
-          management system in place for the business. This process starts with
-          tracking inventory levels across multiple locations, automating the
-          inventory stock levels using Artificial Intelligence and centralizing
-          data for real-time analysis. The implementation covers everything from
-          setting up the software to configuring it to match specific business
-          needs, ensuring seamless integration with existing systems.
-        </p>
-      </div>
-
-      <div className="pt-10 flex justify-center">
-        <img src={images.inventory_steps} className="w-3/4" alt="" />
-      </div>
-
-      <div className="pt-10 pb-8 text-black text-center font-medium text-3xl">
-        <p>
-          <span className="text-cyan-400">Five Reasons</span> to Choose LIIA
-          SMART’s Python <br /> Based Inventory Management Services
-        </p>
-      </div>
-
-      <div className="max-w-6xl mx-auto py-10 px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Card 1 */}
-          <div className="bg-teal-400 p-6 rounded-lg text-center h-auto">
-            <h3 className="font-semibold text-xl">Low Cost</h3>
-            <p className="mt-4">
-              Keep your expenses low with a cost-effective inventory management
-              solution.
-            </p>
           </div>
 
-          {/* Card 2 */}
-          <div className="bg-teal-400 p-6 rounded-lg text-center">
-            <h3 className="font-semibold text-xl">Easy to Implement</h3>
-            <p className="mt-4">
-              Quick and hassle-free setup, without the need for complex
-              integration.
-            </p>
-          </div>
+      <div className="py-9 text-center font-bold md:text-5xl text-2xl mx-2 flex justify-center my-20">
+        <p>
+        We help you take control of your inventory — from planning to performance.
+        </p>
+      </div>
 
-          {/* Card 3 */}
-          <div className="bg-teal-400 p-6 rounded-lg text-center">
-            <h3 className="font-semibold text-xl">Scalable</h3>
-            <p className="mt-4">
-              Grow your inventory system effortlessly as your business expands.
-            </p>
-          </div>
-          
-          {/* Card 4 */}
-          {/* <div className="bg-teal-400 p-6 rounded-lg text-center">
-            <h3 className="font-semibold text-xl">
-              No Need for Heavy Software and IT Implementation
-            </h3>
-            <p className="mt-4">
-              Operate seamlessly without the burden of heavy software or IT
-              infrastructure.
-            </p>
-          </div>
+      <div className="w-full flex flex-col md:flex-row items-center bg-white shadow-lg rounded-xl overflow-hidden min-h-[60vh]">
+      
+      {/* Left Side Image Slideshow */}
+      <div className="w-full md:w-1/2 h-[500px] md:h-auto relative overflow-hidden">
+  <img
+    key={current}
+    src={im[current]}
+    alt="Inventory"
+    className="w-full h-[600px] object-cover opacity-0 animate-fadeIn"
+  />
+</div>
 
-          
-          <div className="bg-teal-400 p-6 rounded-lg text-center">
-            <h3 className="font-semibold text-xl">
-              System Tracks Stock Level and Flags Deviations
-            </h3>
-            <p className="mt-4">
-              Automatically monitor stock levels and receive real-time alerts on
-              discrepancies.
-            </p>
-          </div> */}
-          
+
+
+
+      {/* Right Side Text */}
+      <div className="md:w-1/2 w-full p-8 text-left">
+        <h2 className="text-3xl font-bold mb-4 text-gray-800">Smarter Inventory Management Drives Results</h2>
+        <p className="text-gray-600 md:text-2xl leading-relaxed">
+        Inventory tracking can drain time and resources. Our Python-based system gives small and medium-sized businesses real-time visibility into stock levels across locations, product lines, and programs—helping you stay ahead, restock smarter, and boost profitability.
+        </p>
+      </div>
+    </div>
+
+    <div className="py-9 text-center font-bold md:text-5xl text-2xl mx-2 flex justify-center my-20">
+        <p>
+        What we can do for you
+        </p>
+      </div>
+
+    <div className="flex md:justify-evenly items-center bg-white md:p-6 mx-auto my-20">
+      {/* Icon 1 */}
+      <div className="flex flex-col items-center text-gray-700 px-6">
+        <Box  className="w-[12vw] h-[12vw] sm:w-[8vw] sm:h-[8vw] lg:w-[6vw] lg:h-[6vw]" />
+        <p className="mt-2 text-sm text-center md:text-lg font-medium">Manage orders</p>
+      </div>
+
+      {/* Vertical Divider */}
+      <div className="h-24 md:h-64 border-l border-gray-300 mx-4"></div>
+
+      {/* Icon 2 */}
+      <div className="flex flex-col items-center text-gray-700 px-6">
+        <MapPinned  className="w-[12vw] h-[12vw] sm:w-[8vw] sm:h-[8vw] lg:w-[6vw] lg:h-[6vw]" />
+        <p className="mt-2 text-sm text-center md:text-lg font-medium">Track Products</p>
+      </div>
+
+      {/* Vertical Divider */}
+      <div className="h-24 md:h-64 border-l border-gray-300 mx-4"></div>
+
+      {/* Icon 3 */}
+      <div className="flex flex-col items-center text-gray-700 px-6">
+        <TrendingUp  className="w-[12vw] h-[12vw] sm:w-[8vw] sm:h-[8vw] lg:w-[6vw] lg:h-[6vw]" />
+        <p className="mt-2 text-sm text-center md:text-lg font-medium">Increase sales</p>
+      </div>
+    </div>
+
+    <section className="flex justify-center items-center min-h-screen bg-white px-6 lg:px-20">
+  <div className="flex flex-col items-center max-w-6xl w-full space-y-16">
+    <h2 className="text-3xl md:text-5xl font-bold text-center text-blue-600">
+      Why Choose Us?
+    </h2>
+    
+    {features.map((feature, index) => (
+      <div
+        key={index}
+        className={`flex flex-col md:flex-row ${
+          index % 2 !== 0 ? "md:flex-row-reverse" : ""
+        } items-center gap-10`}
+      >
+        <div className="w-full md:w-1/2 flex justify-center">
+          <img
+            src={feature.image}
+            alt={feature.title}
+            className="max-w-[500px] w-full rounded-xl shadow-md"
+            loading="lazy"
+          />
         </div>
-
-
-        <div className="md:flex gap-6 mt-6 md:mx-[150px]">
-        {/* Card 4 */}
-        <div className="bg-teal-400 p-6 rounded-lg text-center">
-            <h3 className="font-semibold text-xl">
-              No Need for Heavy Software and IT Implementation
-            </h3>
-            <p className="mt-4">
-              Operate seamlessly without the burden of heavy software or IT
-              infrastructure.
-            </p>
-          </div>
-          
-          {/* Card 5 */}
-          <div className="bg-teal-400 p-6 rounded-lg text-center mt-6 md:mt-0">
-            <h3 className="font-semibold text-xl">
-              System Tracks Stock Level and Flags Deviations
-            </h3>
-            <p className="mt-4">
-              Automatically monitor stock levels and receive real-time alerts on
-              discrepancies.
-            </p>
-          </div>
-          </div>      
+        <div className="md:w-1/2 text-center md:text-left">
+          <h3 className="text-5xl font-semibold mb-3 text-gray-800">
+            {feature.title}
+          </h3>
+          <p className="text-gray-600 text-2xl">{feature.description}</p>
+        </div>
       </div>
+    ))}
+  </div>
+</section>
 
-      <div className="max-w-6xl mx-auto py-10 text-center">
-        {/* Title */}
-        <h2 className="text-3xl font-bold mb-10">
-          How LIIA INC Inventory Management can elevate your business
+
+<section className="bg-white py-10 px-4">
+      <div className="max-w-6xl mx-auto my-20">
+        <h1 className="text-5xl font-bold text-center text-gray-800 my-20">
+          Our Process
+        </h1>
+
+        
+          <img className="scale-[1.2] md:scale-[1.3]" src={images.inventory_process} alt="" loading="lazy"/>
+        
+        
+      </div>
+    </section>
+
+    
+
+    <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-teal-500 py-20 px-6 md:px-12 my-20">
+      <div className="max-w-5xl mx-auto text-center my-20">
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          Ready to Elevate Your Business?
         </h2>
-
-        {/* Icons and Descriptions */}
-        <div className="flex justify-center items-center space-x-5 mt-20 mb-20">
-          {/* First Icon - Increase sales */}
-          <div className="text-center">
-            <img
-              src={images.graph}
-              alt="Increase sales"
-              className="w-1/2 mx-auto mb-4"
-            />
-            <p className="font-medium text-gray-500">Increase sales</p>
-          </div>
-
-          {/* Second Icon - Manage orders */}
-          <div className="text-center">
-            <img
-              src={images.checklist}
-              alt="Manage orders"
-              className="w-1/2 mx-auto mb-4"
-            />
-            <p className="font-medium text-gray-500">Manage orders</p>
-          </div>
-
-          {/* Third Icon - End to End Tracking */}
-          <div className="text-center">
-            <img
-              src={images.location}
-              alt="End to End Tracking"
-              className="w-1/2 mx-auto mb-4"
-            />
-            <p className="font-medium text-gray-500">End to End Tracking</p>
-          </div>
-        </div>
+        <p className="text-lg text-white mb-8">
+          Let’s talk about how we can help you achieve your goals through our custom services.
+        </p>
+        <Link
+          to="/home"
+          className="inline-block bg-blue-600 hover:bg-blue-500 text-white font-semibold text-lg md:text-xl px-6 py-3 rounded-full transition duration-300"
+        >
+          Contact Us
+        </Link>
       </div>
+    </section>
+
     </div>
   );
 };

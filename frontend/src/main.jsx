@@ -12,13 +12,15 @@ import BusinessPartner from './components/Home/BusinessPartner';
 import DiamondResume from './components/BusinessOffering/DiamondResume';
 import Sunshine from './components/BusinessOffering/Sunshine';
 import Inventory from './components/Inventory';
-import Supply from './components/Supply';
+import Supply from './components/SupplyChain/Supply'
 import BusinessProcess from './components/BusinessProcess/BusinessProcess';
 import Analyzing from './components/BusinessProcess/Analyzing';
 import Website from './components/BusinessProcess/Website';
 import Airbnb from './components/Airbnb';
 import Career from './Career';
 import { Navigate } from 'react-router-dom';
+import MachineLearning from './components/SupplyChain/MachineLearning';
+import Blockchain from './components/SupplyChain/Blockchain';
 
 
 
@@ -84,9 +86,14 @@ const router = createBrowserRouter([
         path:'/career',
         element:<Career></Career>
       },
-
-
-
+      {
+        path:'/machinelearning',
+        element:<MachineLearning></MachineLearning>
+      },
+      {
+        path:'/blockchain',
+        element:<Blockchain/>
+      }
 
     ]
   },
