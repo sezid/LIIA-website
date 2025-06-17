@@ -181,7 +181,7 @@ const cors = require("cors");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-const BASE_URL = process.env.BASE_URL || "https://liia-website.onrender.com";
+const BASE_URL = process.env.BASE_URL || "https://liia-website-7any.onrender.com";
 
 // Middleware
 app.use(express.json());

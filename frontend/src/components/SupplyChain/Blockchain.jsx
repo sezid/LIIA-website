@@ -59,7 +59,7 @@ const MachineLearning = () => {
 
 const unique = [
   {
-    image: images.unique_feature, // Replace with your actual image path
+    image: "https://liia-cdn.vercel.app/unique_feature.webp", // Replace with your actual image path
     title: "Core Features",
     points: [
       "Product-level blockchain identity",
@@ -68,7 +68,7 @@ const unique = [
     ],
   },
   {
-    image: images.unique_help,
+    image: "https://liia-cdn.vercel.app/unique_help.webp",
     title: "Who We Help",
     points: [
       "Exporters and global producers (food, pharma, commodities)",
@@ -80,7 +80,7 @@ const unique = [
 
   },
   {
-    image: images.unique_value,
+    image: "https://liia-cdn.vercel.app/unique_value.webp",
     title: "How We Deliver Value",
     points: [
       "Usage-Based Pricing – Pay only for what you use",
@@ -95,27 +95,27 @@ const unique = [
 
   const problems = [
   {
-  title: 'Unclear product origins',
+  title: 'Unclear Product Origins',
   icon: <LocateFixed className="h-7 w-7 text-indigo-600" />,
   solution: 'Immutable blockchain record of sourcing and movement',
 },
 {
-  title: 'Lost or damaged inventory',
+  title: 'Lost or Damaged Inventory',
   icon: <PackageSearch className="h-7 w-7 text-teal-800" />,
   solution: 'Real-time alerts via IoT sensors and smart contracts',
 },
 {
-  title: 'Manual document workflows',
+  title: 'Manual Document Workflows',
   icon: <FileCog className="h-7 w-7 text-yellow-500" />,
   solution: 'Automated smart contracts for validation and payments',
 },
 {
-  title: 'Supplier/customer disputes',
+  title: 'Supplier/Customer Disputes',
   icon: <Handshake className="h-7 w-7 text-pink-600" />,
   solution: 'Timestamped, auditable, shared ledger',
 },
 {
-  title: 'Regulatory pressure',
+  title: 'Regulatory Pressure',
   icon: <ShieldCheck className="h-7 w-7 text-green-500" />,
   solution: 'Secure data trails for compliance and certification',
 }
@@ -159,7 +159,7 @@ const unique = [
 
   return (
     <div>
-      <div className="min-h-[90vh] relative flex items-center justify-center text-white px-4 bg-cover bg-center" style={{backgroundImage:`url(${images.blockchain_hero})`}}>
+      <div className="min-h-[90vh] relative flex items-center justify-center text-white px-4 bg-cover bg-center" style={{backgroundImage:`url(https://liia-cdn.vercel.app/blockchain_hero.webp)`}}>
        <div className="absolute inset-0 bg-black opacity-40"></div>
       <div className="relative text-center max-w-4xl">
         <h1 className="text-4xl md:text-6xl font-extrabold mb-6">
@@ -168,7 +168,7 @@ const unique = [
         <p className="text-md md:text-xl text-white/90 mb-6">
           Built on blocks. Powered by trust.
         </p>
-        <button className="bg-green-500 hover:bg-green-600 text-white font-medium px-8 py-3 rounded-full transition duration-300 text-xl">
+        <button className="bg-blue-500 hover:bg-blue-600 text-white font-medium px-8 py-3 rounded-full transition duration-300 text-xl">
           Get A Quote
         </button>
       </div>
@@ -292,13 +292,30 @@ const unique = [
         />
       </div>
       <div className="md:w-1/2 px-4">
-        <h2 className="text-2xl md:text-3xl font-bold mb-4">{slide.title}</h2>
-        <ul className="list-disc list-inside space-y-2 text-gray-700">
-          {slide.points.map((point, index) => (
-            <li key={index}>{point}</li>
-          ))}
-        </ul>
-      </div>
+  <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900">{slide.title}</h2>
+  <ul className="space-y-4">
+    {slide.points.map((point, index) => (
+      <li
+        key={index}
+        className="flex items-start space-x-3 p-2 transition-shadow duration-300"
+      >
+        <span className="flex-shrink-0 mt-1 text-primary">
+          <svg
+            className="w-5 h-5 text-blue-600"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+        </span>
+        <span className="text-xl">{point}</span>
+      </li>
+    ))}
+  </ul>
+</div>
+
     </div>
 
     <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-teal-500 py-20 px-6 md:px-12 my-20">
@@ -307,10 +324,10 @@ const unique = [
                     Want to Integrate this to your business?
                   </h2>
                   <p className="text-lg text-white mb-8">
-                    Let’s talk about how we can help you achieve your goals through our custom services.
+                    Let’s talk about how Blockchain technology can enhance your supply chain activities.
                   </p>
                   <Link
-                    to="/home"
+                    to="/contact"
                     className="inline-block bg-blue-600 hover:bg-blue-500 text-white font-semibold text-lg md:text-xl px-6 py-3 rounded-full transition duration-300"
                   >
                     Contact Us

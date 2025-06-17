@@ -1,4 +1,3 @@
-import React from 'react'
 import images from '../../assets/images/images'
 import { useState, useEffect } from 'react';
 import {
@@ -12,52 +11,40 @@ import {
   SearchCheck,
   Gauge,
   Activity, 
-  ShieldCheck,
+  TrendingUp,
+  Boxes,
+  Route,
+  DollarSign
 } from "lucide-react";
-import {
-  Factory,
-  ShieldAlert,
-  Megaphone, } from "lucide-react";
+
 import { Link } from 'react-router-dom';
 
-const MachineLearning = () => {
 
-  const [openIdx, setOpenIdx] = useState(null);
-  
-  const [current, setCurrent] = useState(0);
 
-  
-  
-
-  const handleClick = (idx) => {
-    // If the clicked card is already open, close it; otherwise, open the new one and close the others
-    setOpenIdx(prev => (prev === idx ? null : idx));
-  };
-
-  const useCases = [
+const useCases = [
   {
-    icon: <LineChart className="w-8 h-8 text-indigo-600" />,
-    title: "Retail & E-commerce",
+    icon: <TrendingUp className="w-8 h-8 text-blue-600" />,
+    title: "Demand Forecasting",
     description:
-      "Leverage predictive analytics for personalized customer experiences, dynamic pricing, and demand forecasting.",
+      "Accurately predict future demand using advanced machine learning models to improve planning and reduce stockouts.",
   },
   {
-    icon: <Factory className="w-8 h-8 text-emerald-600" />,
-    title: "Manufacturing & Operations",
+    icon: <Boxes className="w-8 h-8 text-green-600" />,
+    title: "Inventory Optimization",
     description:
-      "Optimize production schedules, predict equipment failures, and automate maintenance workflows.",
+      "Streamline inventory management by identifying optimal stock levels and minimizing holding and replenishment costs.",
   },
   {
-    icon: <ShieldAlert className="w-8 h-8 text-rose-600" />,
-    title: "Finance & Risk Management",
+    icon: <Route className="w-8 h-8 text-purple-600" />,
+    title: "Logistics & Route Optimization",
     description:
-      "Enhance fraud detection, credit scoring, and investment analysis through advanced machine learning models.",
+      "Enhance delivery efficiency and reduce transportation costs with intelligent route planning and real-time data.",
   },
   {
-    icon: <Megaphone className="w-8 h-8 text-yellow-500" />,
-    title: "Marketing & Customer Insights",
+    icon: <DollarSign className="w-8 h-8 text-orange-600" />,
+    title: "Dynamic Pricing & Procurement",
     description:
-      "Unlock deep insights into customer behavior, sentiment analysis, and campaign effectiveness with natural language.",
+      "Leverage AI to automate pricing strategies and procurement decisions in response to changing demand and supply dynamics.",
   }
 ];
 
@@ -65,7 +52,7 @@ const MachineLearning = () => {
 
   const unique = [
     {
-      image: images.unique_feature, // Replace with your actual image path
+      image: "https://liia-cdn.vercel.app/unique_feature.webp",
       title: "Core Features",
       points: [
         "Predictive analytics for better decision-making",
@@ -76,7 +63,7 @@ const MachineLearning = () => {
       ],
     },
     {
-      image: images.unique_help,
+      image: "https://liia-cdn.vercel.app/unique_help.webp",
       title: "Who We Help",
       points: [
         "Brands and retailers seeking smarter customer engagement",
@@ -87,7 +74,7 @@ const MachineLearning = () => {
       ],
     },
     {
-      image: images.unique_value,
+      image: "https://liia-cdn.vercel.app/unique_value.webp",
       title: "How We Deliver Value",
       points: [
         "Usage-Based Pricing – Pay only for what you use",
@@ -157,6 +144,22 @@ const MachineLearning = () => {
     },
   ];
 
+
+const MachineLearning = () => {
+
+  const [openIdx, setOpenIdx] = useState(null);
+  
+  const [current, setCurrent] = useState(0);
+
+  
+  
+
+  const handleClick = (idx) => {
+    // If the clicked card is already open, close it; otherwise, open the new one and close the others
+    setOpenIdx(prev => (prev === idx ? null : idx));
+  };
+
+  
   const slide = unique[current];
 
   useEffect(() => {
@@ -171,7 +174,7 @@ const MachineLearning = () => {
 
   return (
     <div>
-      <div className="min-h-[90vh] relative flex items-center justify-center text-white px-4 bg-cover bg-center" style={{backgroundImage:`url(${images.ml_hero})`}}>
+      <div className="min-h-[90vh] relative flex items-center justify-center text-white px-4 bg-cover bg-center" style={{backgroundImage:`url(https://liia-cdn.vercel.app/ml_hero.webp)`}}>
        <div className="absolute inset-0 bg-black opacity-40"></div>
       <div className="relative text-center max-w-4xl">
         <h1 className="text-4xl md:text-6xl font-extrabold mb-6">
@@ -180,7 +183,7 @@ const MachineLearning = () => {
         <p className="text-md md:text-xl text-white/90 mb-6">
           Revolutionize Your Business with Intelligent Automation
         </p>
-        <button className="bg-green-500 hover:bg-green-600 text-white font-medium px-8 py-3 rounded-full transition duration-300 text-xl">
+        <button className="bg-blue-500 hover:bg-blue-600 text-white font-medium px-8 py-3 rounded-full transition duration-300 text-xl">
           Get A Quote
         </button>
       </div>
@@ -304,13 +307,29 @@ const MachineLearning = () => {
         />
       </div>
       <div className="md:w-1/2 px-4">
-        <h2 className="text-2xl md:text-3xl font-bold mb-4">{slide.title}</h2>
-        <ul className="list-disc list-inside space-y-2 text-gray-700">
-          {slide.points.map((point, index) => (
-            <li key={index}>{point}</li>
-          ))}
-        </ul>
-      </div>
+  <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900">{slide.title}</h2>
+  <ul className="space-y-4">
+    {slide.points.map((point, index) => (
+      <li
+        key={index}
+        className="flex items-start space-x-3 p-2 transition-shadow duration-300"
+      >
+        <span className="flex-shrink-0 mt-1 text-primary">
+          <svg
+            className="w-5 h-5 text-blue-600"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+        </span>
+        <span className="text-xl">{point}</span>
+      </li>
+    ))}
+  </ul>
+</div>
     </div>
 
     
@@ -323,10 +342,10 @@ const MachineLearning = () => {
                     Want to Integrate this to your business?
                   </h2>
                   <p className="text-lg text-white mb-8">
-                    Let’s talk about how we can help you achieve your goals through our custom services.
+                    Let’s talk about how Machine Learning can enhance your supply chain activites.
                   </p>
                   <Link
-                    to="/home"
+                    to="/contact"
                     className="inline-block bg-blue-600 hover:bg-blue-500 text-white font-semibold text-lg md:text-xl px-6 py-3 rounded-full transition duration-300"
                   >
                     Contact Us

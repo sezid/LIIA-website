@@ -4,16 +4,10 @@ import React, { useState, useEffect } from "react";
 import { Plus, DollarSign, PieChart, LineChart, Layers, CircleCheck, CalendarClock, Timer, XCircle, Presentation, Sun } from 'lucide-react';
 
 
-const Airbnb = () => {
-
-  const [current, setCurrent] = useState(0);
-  const [selectedService, setSelectedService] = useState(null);
-  const [selectedServiceIndex, setSelectedServiceIndex] = useState(null); 
-
-  const im = [
-    images.airbnb_room_pic,
-    images.airbnb_analyse_pic,
-    images.airbnb_success_pic,
+const im = [
+    "https://liia-cdn.vercel.app/airbnb_room.webp",
+    "https://liia-cdn.vercel.app/airbnb_analyse.webp",
+    "https://liia-cdn.vercel.app/airbnb_success.webp",
 
   ];
 
@@ -79,26 +73,35 @@ const Airbnb = () => {
   const services = [
     {
       title: 'Market Performance Tracking',
-      image: images.airbnb_market_pic,
+      image: "https://liia-cdn.vercel.app/airbnb_services_market.webp",
       description: "Stay ahead with our detailed market reports, tracking key performance indicators like Occupancy Rates, Average Daily Rate (ADR), and Revenue Potential. Our Regional Insights offer a clear view of market trends across different locations, helping you identify high-demand areas and strategically position your listings for success."
     },
     {
       title: 'Price Optimization Tools',
-      image: images.airbnb_price_pic,
+      image: "https://liia-cdn.vercel.app/airbnb_services_price.webp",
       description:"Optimize your pricing with our advanced tools that analyze seasonal trends, local demand, and competitor pricing. Our algorithms suggest ideal nightly rates to maximize your earnings while maintaining occupancy." 
 
     },
     {
       title: 'Property Investment Analysis',
-      image: images.airbnb_property_pic,
+      image: "https://liia-cdn.vercel.app/airbnb_services_property.webp",
       description: "Make smart investment decisions with insights into cap rates, income potential, and ROI predictions. Our data-driven analysis helps you evaluate and expand your property portfolio confidently."
     },
     {
       title: 'Custom Analytics Solutions',
-      image: images.airbnb_custom_pic,
+      image: "https://liia-cdn.vercel.app/airbnb_services_custom.webp",
       description: "Tailored to your specific needs, we offer market comparisons, performance forecasting, and custom dashboards. Work with our experts to develop personalized strategies that deliver actionable insights for your business"
     },
   ];
+
+
+const Airbnb = () => {
+
+  const [current, setCurrent] = useState(0);
+  
+  const [selectedServiceIndex, setSelectedServiceIndex] = useState(null); 
+
+  
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -118,7 +121,7 @@ const Airbnb = () => {
               <p className="text-md md:text-2xl text-white/90 mb-6">
                 Delivering the insights that matter
               </p>
-              <button className="bg-green-500 hover:bg-green-600 text-white font-medium px-8 py-3 rounded-full transition duration-300 text-lg">
+              <button className="bg-blue-500 hover:bg-blue-600 text-white font-medium px-8 py-3 rounded-full transition duration-300 text-xl">
                 Get A Quote
               </button>
             </div>
@@ -170,7 +173,7 @@ const Airbnb = () => {
           >
             {item.icon}
             <h3 className="text-xl font-semibold text-gray-800">{item.title}</h3>
-            <p className="text-gray-600 text-sm">{item.description}</p>
+            <p className="text-gray-600 text-base">{item.description}</p>
             
           </div>
         ))}
@@ -188,13 +191,13 @@ const Airbnb = () => {
           <h3 className="text-3xl font-bold text-gray-800 mb-7">
             Key Benefits
           </h3>
-          <ul className="space-y-3 text-gray-700 text-lg list-disc list-inside p-2 list-none">
+          <ul className="space-y-3 text-gray-700 text-xl list-disc list-inside p-2 list-none">
             
-            <li className="flex gap-2"><CircleCheck className="text-green-500 mt-1" size={22}/>Optimize pricing to maximize revenue based on demand and trends</li>
-            <li className="flex gap-2"><CircleCheck className="text-green-500 mt-1" size={22}/>Boost occupancy by aligning availability with booking patterns</li>
-            <li className="flex gap-2"><CircleCheck className="text-green-500 mt-1" size={22}/>Benchmark performance against competitors in your area</li>
-            <li className="flex gap-2"><CircleCheck className="text-green-500 mt-1" size={22}/>Understand guest behavior to enhance listings and experiences</li>
-            <li className="flex gap-2"><CircleCheck className="text-green-500 mt-1" size={22}/>Make informed investment decisions using market and ROI insights</li>
+            <li className="flex gap-2"><CircleCheck className="text-green-500 mt-1" size={28}/>Optimize pricing to maximize revenue based on demand and trends</li>
+            <li className="flex gap-2"><CircleCheck className="text-green-500 mt-1" size={28}/>Boost occupancy by aligning availability with booking patterns</li>
+            <li className="flex gap-2"><CircleCheck className="text-green-500 mt-1" size={28}/>Benchmark performance against competitors in your area</li>
+            <li className="flex gap-2"><CircleCheck className="text-green-500 mt-1" size={28}/>Understand guest behavior to enhance listings and experiences</li>
+            <li className="flex gap-2"><CircleCheck className="text-green-500 mt-1" size={28}/>Make informed investment decisions using market and ROI insights</li>
             
            
             
@@ -213,18 +216,18 @@ const Airbnb = () => {
             <div className="grid grid-cols-3 text-center text-gray-700 text-sm">
               <div>
                 <p>Occupancy</p>
-                <p className="text-base font-bold">55%</p>
-                <p className="text-green-500">▲ 32%</p>
+                <p className="font-bold text-xl">55%</p>
+                <p className="text-green-500 text-xl">▲ 32%</p>
               </div>
               <div>
                 <p>ADR</p>
-                <p className="text-base font-bold">$211</p>
-                <p className="text-green-500">▲ 12%</p>
+                <p className="font-bold text-xl">$211</p>
+                <p className="text-green-500 text-xl">▲ 12%</p>
               </div>
               <div>
                 <p>Revenue</p>
-                <p className="text-base font-bold">$34.7K</p>
-                <p className="text-green-500">▲ 67%</p>
+                <p className="font-bold text-xl">$34.7K</p>
+                <p className="text-green-500 text-xl">▲ 67%</p>
               </div>
             </div>
           </div>
@@ -256,7 +259,7 @@ const Airbnb = () => {
 
     <div className="flex flex-col md:flex-row mx-auto bg-white rounded-xl shadow-lg overflow-hidden mt-[200px] mb-[150px]">
       <img
-        src={images.airbnb_mission_pic} // replace with actual image path
+        src="https://liia-cdn.vercel.app/airbnb_mission.webp" // replace with actual image path
         alt="Mission"
         className="w-full md:w-1/2 object-cover"
       />
@@ -270,12 +273,12 @@ const Airbnb = () => {
     <div className="flex justify-center text-center mb-20">
         <h1 className="text-4xl md:text-5xl font-bold">What do we Offer?</h1>
     </div>
-    <div className="flex flex-wrap md:flex-nowrap w-full">
+    <div className="flex flex-wrap md:flex-nowrap w-full cursor-pointer">
       
       {services.map((service, index) => (
         <div
           key={index}
-          className="relative w-full md:w-1/4 h-96 bg-cover bg-center group transition-all duration-300"
+          className="relative w-full md:w-1/4 h-96 bg-cover bg-center group transition-all duration-300 lazy"
           style={{ backgroundImage: `url(${service.image})` }}
           onClick={() => setSelectedServiceIndex(index === selectedServiceIndex ? null : index)}
         >
@@ -283,7 +286,7 @@ const Airbnb = () => {
         <div className={`absolute inset-0 bg-black transition-opacity duration-300 ${selectedServiceIndex === index ? 'opacity-50' : 'opacity-30'}`}></div>
       
         {/* Title */}
-        <div className={`absolute bottom-4 left-4 z-10 text-white text-xl drop-shadow-lg ${selectedServiceIndex === index ? 'opacity-50 hidden' : ''}`}>
+        <div className={`absolute inset-0 flex items-center justify-center z-10 text-white text-3xl drop-shadow-lg text-center transition-opacity duration-300 ${selectedServiceIndex === index ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
           {service.title}
         </div>
       
@@ -312,7 +315,7 @@ const Airbnb = () => {
                 Let’s talk about how we can help you achieve your goals through our custom services.
               </p>
               <Link
-                to="/home"
+                to="/contact"
                 className="inline-block bg-blue-600 hover:bg-blue-500 text-white font-semibold text-lg md:text-xl px-6 py-3 rounded-full transition duration-300"
               >
                 Contact Us

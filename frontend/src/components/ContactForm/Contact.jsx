@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FaCheckCircle } from "react-icons/fa";
 
 const ContactForm = () => {
@@ -6,7 +6,7 @@ const ContactForm = () => {
     name: "",
     email: "",
     phone: "",
-    serviceType: "None",  
+    serviceType: "",
     message: "",
   });
 
@@ -21,22 +21,27 @@ const ContactForm = () => {
     setSubmissionSuccess(false);
 
     try {
-      const response = await fetch("https://liia-website.onrender.com/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://liia-website-7any.onrender.com/submit",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       if (response.ok) {
-        setFormData({ name: "", email: "", phone: "", serviceType: "", message: "" });
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          serviceType: "",
+          message: "",
+        });
         setSubmissionSuccess(true);
-
-        // Auto-hide success message after 4 seconds
-        setTimeout(() => {
-          setSubmissionSuccess(false);
-        }, 3000);
+        setTimeout(() => setSubmissionSuccess(false), 3000);
       }
     } catch (error) {
       console.error("Submission failed", error);
@@ -44,56 +49,121 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-lg relative">
-      {submissionSuccess && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4">
-          <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-sm sm:max-w-lg relative">
-            <div className="flex flex-col justify-center items-center gap-5 text-center">
-              <FaCheckCircle size={50} className="text-green-600" />
-              <span>Form submitted successfully! We will get back to you soon.</span>
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4 py-12">
+      <div className="max-w-2xl w-full bg-white rounded-xl shadow-2xl p-10 border border-gray-200 relative">
+        {submissionSuccess && (
+          <div className="fixed inset-0 z-50 bg-black bg-opacity-40 flex justify-center items-center">
+            <div className="bg-white rounded-xl p-8 shadow-2xl w-[90%] max-w-md text-center animate-fade-in">
+              <FaCheckCircle
+                size={48}
+                className="text-green-500 mx-auto mb-4"
+              />
+              <h3 className="text-xl font-semibold mb-2">Success!</h3>
+              <p className="text-gray-600">
+                Form submitted successfully. We’ll get back to you shortly.
+              </p>
             </div>
           </div>
+        )}
+
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-bold text-gray-800">Contact Us</h2>
+          <p className="text-gray-500 text-sm mt-2">
+            We'd love to hear from you. Please fillout the form below.
+          </p>
         </div>
-      )}
-      
-      <form onSubmit={handleSubmit} className="space-y-4">
-        {/* Name, Email, Phone */}
-        <label className="font-bold">Name</label>
-        <input type="text" name="name" value={formData.name} onChange={handleChange} className="border p-2 rounded w-full" required />
-        
-        <div className="flex justify-between gap-5">
-          <div className="flex flex-col gap-2">
-            <label className="font-bold">Email</label>
-            <input type="email" name="email" value={formData.email} onChange={handleChange} className="border p-2 rounded w-full" required />
+
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Full Name
+            </label>
+            <input
+              type="text"
+              name="name"
+              required
+              value={formData.name}
+              onChange={handleChange}
+              className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Name"
+            />
           </div>
-          <div className="flex flex-col gap-2">
-            <label className="font-bold">Phone</label>
-            <input type="tel" name="phone" value={formData.phone} onChange={handleChange} className="border p-2 rounded w-full" />
+
+          <div className="flex flex-col md:flex-row gap-4">
+            <div className="flex-1">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Email
+              </label>
+              <input
+                type="email"
+                name="email"
+                required
+                value={formData.email}
+                onChange={handleChange}
+                className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="you@example.com"
+              />
+            </div>
+            <div className="flex-1">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Phone (Optional)
+              </label>
+              <input
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Phone"
+              />
+            </div>
           </div>
-        </div>
 
-        {/* Service Dropdown */}
-        <div className="flex flex-col gap-2">
-          <label className="font-bold">Service</label>
-          <select name="serviceType" value={formData.serviceType} onChange={handleChange} className="border p-2 rounded w-full">
-            <option value="">None</option>
-            <option value="Other">Other</option>
-            <option value="Inventory System">Inventory System</option>
-            <option value="Airbnb Analytics">Airbnb Analytics</option>
-            <option value="Supply Chain Analytics">Supply Chain Analytics</option>
-            <option value="Web Development Services">Web Development Services</option>
-          </select>
-        </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Service Type
+            </label>
+            <select
+              name="serviceType"
+              value={formData.serviceType}
+              onChange={handleChange}
+              className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+            >
+              <option value="">-- Select a service --</option>
+              <option value="Inventory System">Inventory System</option>
+              <option value="Airbnb Analytics">Airbnb Analytics</option>
+              <option value="Supply Chain Analytics">
+                Supply Chain Analytics
+              </option>
+              <option value="Web Development Services">
+                Web Development Services
+              </option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
 
-        {/* Message */}
-        <div className="flex flex-col gap-2">
-          <label className="font-bold">Message</label>
-          <textarea name="message" value={formData.message} onChange={handleChange} className="border p-2 rounded w-full h-24" required></textarea>
-        </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Message
+            </label>
+            <textarea
+              name="message"
+              required
+              value={formData.message}
+              onChange={handleChange}
+              className="w-full border border-gray-300 rounded-lg p-3 h-32 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Your Message"
+            ></textarea>
+          </div>
 
-        {/* Submit Button */}
-        <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-700 transition">Submit Message</button>
-      </form>
+          <button
+            type="submit"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg text-lg font-medium transition"
+          >
+            Send Message
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

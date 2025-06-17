@@ -21,7 +21,7 @@ import Career from './Career';
 import { Navigate } from 'react-router-dom';
 import MachineLearning from './components/SupplyChain/MachineLearning';
 import Blockchain from './components/SupplyChain/Blockchain';
-
+import Contact from './components/ContactForm/Contact';
 
 
 
@@ -93,6 +93,10 @@ const router = createBrowserRouter([
       {
         path:'/blockchain',
         element:<Blockchain/>
+      },
+      {
+        path:'/contact',
+        element:<Contact/>
       }
 
     ]

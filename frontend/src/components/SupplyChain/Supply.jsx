@@ -9,7 +9,13 @@ import { FaChartLine } from 'react-icons/fa';
 import { HiOutlineClipboardList } from 'react-icons/hi';
 import { FaUserTie } from 'react-icons/fa';
 import { FaCode } from 'react-icons/fa';
-
+import {
+  GaugeCircle,     // Speed/acceleration
+  BellRing,        // Alerts
+  RefreshCcw,      // Adaptation/response
+  DollarSign       // Cost savings
+} from 'lucide-react';
+import { Rocket, ArrowDown, Brain } from 'lucide-react';
 
 
 
@@ -27,36 +33,63 @@ const Supply = () => {
       img.src = hero_src;
     }, [hero_src]);
 
+    const impactData = [
+   {
+    icon: <GaugeCircle className="w-10 h-10 text-white" />,
+    title: "Accelerate Decisions",
+    description: "Make smarter decisions faster with real-time, data-driven insights.",
+    bgColor: "bg-indigo-600",
+  },
+  {
+    icon: <BellRing className="w-10 h-10 text-white" />,
+    title: "Proactive Alerts",
+    description: "Stay ahead through intelligent alerts and early warning signals.",
+    bgColor: "bg-orange-500",
+  },
+  {
+    icon: <RefreshCcw className="w-10 h-10 text-white" />,
+    title: "Adapt Quickly",
+    description: "Respond rapidly to disruptions and evolving market demands.",
+    bgColor: "bg-emerald-600",
+  },
+  {
+    icon: <DollarSign className="w-10 h-10 text-white" />,
+    title: "Unlock Savings",
+    description: "Reduce inefficiencies and optimize spend with intelligent automation.",
+    bgColor: "bg-blue-700",
+  }
+];
+
     const features = [
       {
         title: "Smart Forecasting",
         description:
           "Predict demand with Machine Learning & AI-driven insights, and manage resources efficiently.",
-        image: "https://liia-cdn.vercel.app/ml_pic.jpg",
+        image: "https://liia-cdn.vercel.app/ml_pic.webp",
       },
       {
         title: "Enhanced Inventory Optimization",
         description:
           "Ensure optimal stock levels to reduce holding costs and improve service.",
-        image: images.inventory_pic,
+        image: "https://liia-cdn.vercel.app/inventory_pic.webp",
       },
       {
         title: "Delivery Optimization",
         description:
           "Accurately estimate delivery times and optimize shipment routes in real time.",
-        image: images.delivery_pic,
+        image: "https://liia-cdn.vercel.app/delivery_pic.webp",
       },
       {
         title: "Agentic Supply Chain Automation",
         description:
           "Enable autonomous decisions with AI that responds in real-time to market changes and disruptions.",
-        image: images.ai_agent_pic,
+        image: "https://liia-cdn.vercel.app/ai_agent_pic.webp",
       },
       {
         title: "Proactive Risk & Fraud Control",
         description:
           "Identify and reduce supply chain risks while preventing fraud before it happens.",
-        image: images.risk_pic,
+        image: "https://liia-cdn.vercel.app/risk_pic.webp",
       }
     ];  
   
@@ -117,8 +150,8 @@ const Supply = () => {
     <p className="text-md md:text-2xl text-white/90 mb-6">
       Innovating tomorrow's Supply Chain Today
     </p>
-    <button className="bg-green-500 hover:bg-green-600 text-white font-medium px-8 py-3 rounded-full transition duration-300 text-xl">
-      Get A Quote
+    <button className="bg-blue-500 hover:bg-blue-600 text-white font-medium px-8 py-3 rounded-full transition duration-300 text-xl" target="_blank" onClick={() => window.open("https://calendly.com/liia-smart-liiasmart/30min", "_blank")}>
+      Book a Demo
     </button>
   </div>
 </div>
@@ -246,9 +279,9 @@ const Supply = () => {
 
         {/* <img className="mx-auto w-[950px]" src={images.ml_supply_chain_image} alt="" /> */}
         
-        <div className="flex flex-col md:flex-row items-stretch overflow-hidden shadow-xl my-[150px] bg-white">
-  {/* Image Side */}
-  <div className="md:w-1/2 h-64 md:h-auto">
+        
+
+  {/* <div className="md:w-1/2 h-64 md:h-auto">
     <img
       src="https://liia-cdn.vercel.app/business_impact_pic.webp" // Replace with your image path
       alt="Business Impact"
@@ -256,7 +289,6 @@ const Supply = () => {
     />
   </div>
 
-  {/* Text Side */}
   <div className="p-10 md:w-1/2 flex flex-col justify-center">
     <h2 className="text-4xl font-bold text-gray-900 mb-6 leading-snug">Business Impacts</h2>
     <ul className="space-y-4 text-gray-700 text-base leading-relaxed">
@@ -272,8 +304,33 @@ const Supply = () => {
         </li>
       ))}
     </ul>
-  </div>
-</div>
+  </div> */}
+
+
+
+<section className="py-16 bg-gray-50 my-20">
+      <div className="max-w-7xl mx-auto px-6 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 my-20">
+          Business Impacts
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          {impactData.map((item, idx) => (
+            <div
+              key={idx}
+              className="flex items-center p-6 bg-white shadow-lg rounded-xl transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl"
+            >
+              <div className={`p-4 rounded-full ${item.bgColor} mr-6`}>
+                {item.icon}
+              </div>
+              <div className="text-left">
+                <h4 className="text-xl font-semibold text-gray-800 mb-1">{item.title}</h4>
+                <p className="text-gray-600 text-base">{item.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
 
 
 
@@ -335,53 +392,40 @@ const Supply = () => {
         </div> */}
 
         {/* Our Commitment Section */}
-        <h2 className="text-4xl font-bold text-center mt-12 mb-8 p-8">
+        <h2 className="text-4xl font-bold text-center mb-8 p-8">
           Our Commitments
         </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-4 my-40 text-center">
+    
+    {/* Boost */}
+    <div className="bg-white border border-gray-200 rounded-2xl shadow-md hover:shadow-lg transition-shadow p-6 flex flex-col items-center text-center">
+      <Rocket className="h-16 w-16 text-blue-500 mb-4" />
+      <h3 className="text-lg font-semibold mb-2">Boost</h3>
+      <p className="text-gray-600 text-sm">
+        Supply Chain performance and build resilient supply chain
+      </p>
+    </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center p-4 my-20">
-          {/* Boost */}
-          <div className="bg-white p-4 rounded-lg shadow-md hover:scale-105 transition-transform duration-500 ease-in-out">
-            <div>
-              <img
-                src={images.supply_boost}
-                alt="Boost Icon"
-                className="h-24 w-24 mx-auto"
-              />
-            </div>
-            <h4 className="font-bold">Boost</h4>
-            <p>Supply Chain performance and build resilient supply chain</p>
-          </div>
+    {/* Reduce */}
+    <div className="bg-white border border-gray-200 rounded-2xl shadow-md hover:shadow-lg transition-shadow p-6 flex flex-col items-center text-center">
+      <ArrowDown className="h-16 w-16 text-green-500 mb-4" />
+      <h3 className="text-lg font-semibold mb-2">Reduce</h3>
+      <p className="text-gray-600 text-sm">
+        Working capital and time to value for highly optimized supply chain
+      </p>
+    </div>
 
-          {/* Reduce */}
-          <div className="bg-white p-4 rounded-lg shadow-md hover:scale-105 transition-transform duration-500 ease-in-out">
-            <div>
-              <img
-                src={images.supply_reduce}
-                alt="Boost Icon"
-                className="h-24 w-24 mx-auto"
-              />
-            </div>
-            <h4 className="font-bold">Reduce</h4>
-            <p>
-              Working capital and time to value for highly optimized supply
-              chain
-            </p>
-          </div>
+    {/* Decision Making */}
+    <div className="bg-white border border-gray-200 rounded-2xl shadow-md hover:shadow-lg transition-shadow p-6 flex flex-col items-center text-center">
+      <Brain className="h-16 w-16 text-purple-500 mb-4" />
+      <h3 className="text-lg font-semibold mb-2">Decision Making</h3>
+      <p className="text-gray-600 text-sm">
+        Robust Decision Making with Real Time Fashion
+      </p>
+    </div>
 
-          {/* Decision Making */}
-          <div className="bg-white p-4 rounded-lg shadow-md hover:scale-105 transition-transform duration-500 ease-in-out">
-            <div>
-              <img
-                src={images.supply_decision}
-                alt="Boost Icon"
-                className="h-24 w-24 mx-auto"
-              />
-            </div>
-            <h4 className="font-bold">Decision Making</h4>
-            <p>Robust Decision Making with Real Time Fashion</p>
-          </div>
-        </div>
+  </div>
+
       
 
       <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-teal-500 py-20 px-6 md:px-12 my-20">
@@ -393,7 +437,7 @@ const Supply = () => {
                 Let’s talk about how we can help you achieve your goals through our custom services.
               </p>
               <Link
-                to="/home"
+                to="/contact"
                 className="inline-block bg-blue-600 hover:bg-blue-500 text-white font-semibold text-lg md:text-xl px-6 py-3 rounded-full transition duration-300"
               >
                 Contact Us

@@ -8,72 +8,48 @@ const Inventory = () => {
     const [current, setCurrent] = useState(0);
   
     const im = [
-      images.inventory_system,
-      images.inventory_analyse,
-      images.airbnb_success_pic,
+      "https://liia-cdn.vercel.app/inventory_system.webp",
+      "https://liia-cdn.vercel.app/inventory_analyse.webp",
+      "https://liia-cdn.vercel.app/airbnb_success.webp",
     ];
 
-    const steps = [
-      {
-        title: "Requirement Gathering",
-        phase: "Kickoff",
-        icon: <Rocket className="w-6 h-6 text-cyan-500" />,
-        color: "bg-cyan-400",
-      },
-      {
-        title: "Selection & Customization",
-        phase: "Planning",
-        icon: <FileText className="w-6 h-6 text-purple-800" />,
-        color: "bg-purple-800",
-      },
-      {
-        title: "System Setup, Data Migration & Testing",
-        phase: "Execution",
-        icon: <Settings className="w-6 h-6 text-purple-500" />,
-        color: "bg-purple-400",
-      },
-      {
-        title: "Training & Post Implementation",
-        phase: "Go Live",
-        icon: <Target className="w-6 h-6 text-red-600" />,
-        color: "bg-red-500",
-      },
-    ];
+
 
     const features = [
       {
         title: "Smart Stock Control",
         description:
           "Automated alerts and real-time tracking to prevent shortages and overstocking.",
-        image: images.inventory_stock  
+        image: "https://liia-cdn.vercel.app/inventory_stock.webp" 
       },
       {
         title: "Insightful Forecasting",
         description:
           "Use clear data to make accurate, informed business decisions.",
-        image:images.inventory_forecasting  
+        image:"https://liia-cdn.vercel.app/inventory_forecasting.webp"
       },
       {
         title: "Multi-Location Management",
         description:
           "Easily manage inventory across multiple stores or warehouses.",
-          image:images.inventory_location  
+          image:"https://liia-cdn.vercel.app/inventory_location.webp"
 
       },
       {
         title: "Scalable & Cost-Efficient",
         description:
           "Grows with your business—no complex setup or costly systems required.",
-        image: images.inventory_scalable  
+        image: "https://liia-cdn.vercel.app/inventory_scalable.webp" 
       },
       {
         title: "Streamlined Operations",
         description:
           "Improve workflow, reduce manual work, and boost efficiency.",
-        image: images.inventory_operation  
+        image: "https://liia-cdn.vercel.app/inventory_operation.webp" 
       },
     ];
-  
+
+
 
   
     useEffect(() => {
@@ -105,9 +81,11 @@ const Inventory = () => {
               <p className="text-md md:text-2xl text-white/90 mb-6">
               Transform Your Inventory — Unlock Efficiency, Boost Growth
               </p>
-              <button className="bg-green-500 hover:bg-green-600 text-white font-medium px-8 py-3 rounded-full transition duration-300 text-xl">
+              
+              <button className="bg-blue-500 hover:bg-blue-600 text-white font-medium px-8 py-3 rounded-full transition duration-300 text-xl">
                 Get A Quote
               </button>
+              
             </div>
           </div>
 
@@ -116,6 +94,20 @@ const Inventory = () => {
         We help you take control of your inventory — from planning to performance.
         </p>
       </div>
+
+        <div className="flex justify-center items-center min-h-screen bg-gray-50">
+  <div className="w-full max-w-5xl aspect-video">
+    <iframe
+      className="w-full h-full rounded-xl shadow-lg"
+      src="https://www.youtube.com/embed/38WHuxuHbN4"
+      title="YouTube video player"
+      frameBorder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowFullScreen
+    ></iframe>
+  </div>
+</div>
+
 
       <div className="w-full flex flex-col md:flex-row items-center bg-white shadow-lg rounded-xl overflow-hidden min-h-[60vh]">
       
@@ -173,9 +165,37 @@ const Inventory = () => {
       </div>
     </div>
 
+    <div className="py-9 text-center font-bold md:text-5xl text-2xl mx-2 flex justify-center my-20">
+        <p>
+        Get More Out of Your Inventory
+        </p>
+    </div>
+
+
+    <div className="mx-auto p-6 mb-40">
+      <div className="flex flex-col md:flex-row bg-white shadow-lg overflow-hidden">
+        {/* Left Side - Image */}
+        <div className="md:w-full">
+          <img
+            src={images.dashboard}
+            alt="Card"
+            className="w-full object-cover"
+          />
+        </div>
+
+        {/* Right Side - Content */}
+        <div className="md:w-3/4 p-6 flex flex-col justify-center">
+          <h2 className="md:text-3xl font-bold mb-4">Data Driven Supply Chain Dashboards</h2>
+          <p className="text-gray-600 md:text-xl">
+            Achieve complete supply chain visibility with our custom, interactive dashboards. From accurate demand forecasting to seamless logistics optimization, our solutions empower you to make faster, smarter, and data-driven decisions—no matter where you operate. Enhance agility, reduce risk, and stay ahead in today’s dynamic global market.
+          </p>
+        </div>
+      </div>
+    </div>
+
     <section className="flex justify-center items-center min-h-screen bg-white px-6 lg:px-20">
   <div className="flex flex-col items-center max-w-6xl w-full space-y-16">
-    <h2 className="text-3xl md:text-5xl font-bold text-center text-blue-600">
+    <h2 className="text-3xl md:text-5xl font-bold text-center text-blue-600 mb-40">
       Why Choose Us?
     </h2>
     
@@ -208,16 +228,19 @@ const Inventory = () => {
 
 <section className="bg-white py-10 px-4">
       <div className="max-w-6xl mx-auto my-20">
-        <h1 className="text-5xl font-bold text-center text-gray-800 my-20">
+        <h1 className="text-5xl font-bold text-center text-gray-800 my-40">
           Our Process
         </h1>
 
         
-          <img className="scale-[1.2] md:scale-[1.3]" src={images.inventory_process} alt="" loading="lazy"/>
+          <img className="scale-[1.1]" src="https://liia-cdn.vercel.app/inventory_process_step.webp" alt="" loading="lazy"/>
         
         
       </div>
     </section>
+
+
+  
 
     
 
@@ -230,7 +253,7 @@ const Inventory = () => {
           Let’s talk about how we can help you achieve your goals through our custom services.
         </p>
         <Link
-          to="/home"
+          to="/contact"
           className="inline-block bg-blue-600 hover:bg-blue-500 text-white font-semibold text-lg md:text-xl px-6 py-3 rounded-full transition duration-300"
         >
           Contact Us

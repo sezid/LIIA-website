@@ -6,7 +6,7 @@ const BusinessProcess = () => {
         <div className="mb-[300px]">
             <div><h1 className="text-5xl font-extrabold text-center pt-16">Our Services</h1></div>
             <div className="flex justify-center gap-8 pt-20 pb-[200px]">
-                <div className="card bg-teal-300 w-96 shadow-xl">
+                {/* <div className="card bg-teal-300 w-96 shadow-xl">
                     <div className="card-body">
                         <h2 className="card-title justify-center pt-6">
                             Web Development</h2>
@@ -15,7 +15,7 @@ const BusinessProcess = () => {
                             <button className="btn btn-primary p-5"><NavLink to="/website">GO</NavLink></button>
                         </div>
                     </div>
-                </div>
+                </div> */}
 
                 <div className="card bg-teal-300 w-96 shadow-xl">
                     <div className="card-body">
